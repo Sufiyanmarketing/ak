@@ -11,10 +11,12 @@ body = body.replace('<a class="skip" href="#main">Hopp til innhold</a>\n', '')
 body = body.replace('<main id="main">', '').replace('</main>', '')
 body = re.sub(r'<div class="hero-photo" aria-hidden="true">\s*<img[^>]*>\s*</div>',
               '<div class="hero-photo" aria-hidden="true"><div class="kob-img kob-img-hero"></div></div>', body)
-body = re.sub(r'<img src="assets/img/coaching.webp"[^>]*>',
-              '<div class="kob-img kob-img-coach" role="img" aria-label="Anne Karin i en coachingsamtale med en deltaker"></div>', body)
-body = re.sub(r'<img src="assets/img/hero-anne-karin.webp"[^>]*>',
-              '<div class="kob-img kob-img-hero" role="img" aria-label="Anne Karin, grunnlegger av Krystallklart budskap"></div>', body)
+def img_div(m):
+    kind = 'hero' if 'hero-anne-karin' in m.group(1) else 'coach'
+    alt = m.group(2)
+    attrs = f' role="img" aria-label="{alt}"' if alt else ''
+    return f'<div class="kob-img kob-img-{kind}"{attrs}></div>'
+body = re.sub(r'<img src="assets/img/(hero-anne-karin|coaching)\.webp" alt="([^"]*)"[^>]*>', img_div, body)
 assert 'assets/' not in body, re.findall(r'assets/[^"]+', body)
 ld = re.findall(r'<script type="application/ld\+json">.*?</script>', html, re.S)
 
@@ -60,9 +62,7 @@ css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
 scoped = scope_block(css)
 # header: absolute over hero instead of fixed
 scoped = scoped.replace('position: fixed; inset: 0 0 auto; z-index: 50;', 'position: absolute; inset: 0 0 auto; z-index: 50;')
-scoped = scoped.replace('.kob .hero-photo img {', '.kob .hero-photo .kob-img {')
-scoped = scoped.replace('.kob .practice-photo img {', '.kob .practice-photo .kob-img {')
-scoped = scoped.replace('.kob .about-photo img {', '.kob .about-photo .kob-img {')
+scoped = re.sub(r'(\.kob \.[\w-]+-photo) img\b', r'\1 .kob-img', scoped)
 
 extra = """
 /* Bilder – bytt url(...) med egne bilder lastet opp i Kajabi */
