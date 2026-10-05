@@ -12,3 +12,6 @@ Statisk landingsside for Krystallklart budskap. Åpne `index.html` i nettleseren
 - Legg inn lenke til PDF-presentasjonen («Last ned presentasjonen», merket `TODO` i `index.html`).
 - Seksjonen «Hva tidligere deltakere sier» er kommentert ut – fyll inn ekte sitater og fjern kommentaren.
 - Oppdater `canonical`-URL og `og:image` (absolutt URL) til endelig domene.
+
+## Kajabi
+`kajabi/kajabi-landing.html` er en selvstendig versjon (HTML + CSS + JS + bilder i én fil) som limes inn i en «Custom Code»-blokk i Kajabi. All CSS er avgrenset til `.kob`, så den ikke kolliderer med Kajabi-temaet. Bytt bilder ved å endre `--img-hero` / `--img-coach` øverst i `<style>`.
