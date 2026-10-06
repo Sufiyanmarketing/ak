@@ -15,3 +15,7 @@ Statisk landingsside for Krystallklart budskap. Åpne `index.html` i nettleseren
 
 ## Kajabi
 `kajabi/kajabi-landing.html` er en selvstendig versjon (HTML + CSS + JS + bilder i én fil) som limes inn i en «Custom Code»-blokk i Kajabi. All CSS er avgrenset til `.kob`, så den ikke kolliderer med Kajabi-temaet. Bytt bilder ved å endre `--img-hero` / `--img-coach` øverst i `<style>`.
+
+## Salgsside (ny design)
+`sales-page.html` er en selvstendig salgsside (HTML + CSS + JS i én fil) bygget etter det nye referansedesignet, med bildene hentet direkte fra Kajabi/CDN. All CSS er avgrenset til `.ks`, så innholdet i `<div class="ks">` (sammen med `<style>` og `<script>`) kan også limes inn i en «Custom Code»-blokk i Kajabi.
+- «Last ned presentasjonen» peker foreløpig til `#` (merket `TODO`) – legg inn lenken til PDF-en.
