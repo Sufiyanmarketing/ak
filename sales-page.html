@@ -93,20 +93,11 @@
 .ks .header.stuck{position:fixed;background:rgba(1,26,55,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.45);animation:ks-drop .35s ease}
 .ks .header.stuck .wrap{height:76px;padding-top:0}
 .ks .header.stuck .logo img{height:46px}
-.ks .nav .nav-cta{display:none;padding:11px 26px;font-size:16px;min-width:0;opacity:1}
-.ks .nav .nav-cta .ico{width:18px;height:18px}
-.ks .header.stuck .nav .nav-cta{display:inline-flex}
-.ks .header.stuck .nav .login{display:none}
-.ks .mobile-cta{display:none}
+/* Sign-up button only appears in the compact bar after scrolling */
+.ks .sticky-cta{display:none;padding:11px 26px;font-size:16px;min-width:0}
+.ks .sticky-cta .ico{width:18px;height:18px}
+.ks .header.stuck .sticky-cta{display:inline-flex}
 @keyframes ks-drop{from{transform:translateY(-100%)}to{transform:none}}
-.ks .nav{display:flex;align-items:center;gap:36px}
-.ks .nav a{color:#fff;font-size:17px;font-weight:500;opacity:.92;transition:opacity .2s, color .2s}
-.ks .nav a:hover{opacity:1;color:#bfe6fb}
-.ks .nav .btn:hover{color:#fff}
-.ks .nav .login{border:1.6px solid #e2aa72;border-radius:999px;padding:11px 32px;opacity:1;margin-left:8px}
-.ks .nav .login:hover{background:rgba(226,170,114,.14);color:#fff}
-.ks .burger{display:none;background:none;border:0;width:44px;height:44px;padding:10px;cursor:pointer}
-.ks .burger span{display:block;height:2px;background:#fff;border-radius:2px;margin:6px 0;transition:transform .25s,opacity .25s}
 
 /* ---------- hero ---------- */
 .ks .hero{position:relative;background:var(--navy);color:#fff;min-height:clamp(760px,100svh,1000px);overflow:hidden;display:flex;flex-direction:column}
@@ -293,7 +284,6 @@
 
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
-  .ks .nav{gap:24px}
   .ks .grid-4,.ks .mod-grid{grid-template-columns:repeat(2,1fr)}
   .ks .grid-3{grid-template-columns:1fr 1fr}
   .ks .disc-grid{grid-template-columns:1fr 1fr}
@@ -307,22 +297,12 @@
   .ks .facts li:nth-child(3){border-left:0}
 }
 @media (max-width:900px){
-  .ks .burger{display:block}
-  .ks .nav{position:absolute;top:96px;left:var(--gut);right:var(--gut);flex-direction:column;align-items:stretch;gap:0;background:rgba(5,32,64,.97);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:10px;display:none}
-  .ks .nav.open{display:flex}
-  .ks .nav a{padding:13px 14px;border-radius:8px}
-  .ks .nav .login{margin:8px 0 2px;text-align:center}
-  .ks .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-  .ks .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-  .ks .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   .ks .header .wrap{height:96px}
   .ks .logo img{height:50px}
   .ks .header.stuck .wrap{height:68px}
   .ks .header.stuck .logo img{height:40px}
-  .ks .header.stuck .nav{top:72px}
-  .ks .nav .nav-cta,.ks .header.stuck .nav .nav-cta{display:none}
-  .ks .header.stuck .nav .login{display:block}
-  .ks .header.stuck .mobile-cta{display:inline-flex;margin-left:auto;padding:9px 18px;font-size:15px;min-width:0}
+  .ks .sticky-cta{padding:9px 18px;font-size:15px}
+  .ks .sticky-cta .ico{display:none}
 
   .ks .hero{min-height:0}
   .ks .stats{margin-top:40px}
@@ -410,16 +390,7 @@
     <a class="logo" href="#ks-top" aria-label="Krystallklart budskap – til toppen">
       <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159461574/settings_images/d2a3c85-350c-fbf7-ae3a-64c6d07d1df_logo-horizontal-compact-kopi.png" alt="Krystallklart budskap" width="260" height="62">
     </a>
-    <a class="btn mobile-cta" href="https://webinar.krystallklart.no/offers/d2Zh26RK/checkout?preview=true">Meld deg på</a>
-    <button class="burger" type="button" aria-label="Åpne meny" aria-expanded="false" aria-controls="ks-nav" data-ks-burger><span></span><span></span><span></span></button>
-    <nav class="nav" id="ks-nav" aria-label="Hovedmeny" data-ks-nav>
-      <a href="#ks-programmet">Programmet</a>
-      <a href="#ks-for-hvem">For hvem</a>
-      <a href="#ks-om">Om Anne Karin</a>
-      <a href="#ks-ressurser">Ressurser</a>
-      <a class="login" href="https://webinar.krystallklart.no/login">Logg inn</a>
-      <a class="btn nav-cta" href="https://webinar.krystallklart.no/offers/d2Zh26RK/checkout?preview=true">Meld deg på <svg class="ico"><use href="#ks-arrow"/></svg></a>
-    </nav>
+    <a class="btn sticky-cta" href="https://webinar.krystallklart.no/offers/d2Zh26RK/checkout?preview=true">Meld deg på <svg class="ico"><use href="#ks-arrow"/></svg></a>
   </div>
 </header>
 
@@ -732,19 +703,6 @@
   if(header){
     var onScroll=function(){ header.classList.toggle('stuck', window.scrollY > 160); };
     window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  }
-
-  // Mobile menu
-  var burger=root.querySelector('[data-ks-burger]'), nav=root.querySelector('[data-ks-nav]');
-  if(burger&&nav){
-    burger.addEventListener('click',function(){
-      var open=nav.classList.toggle('open');
-      burger.setAttribute('aria-expanded',open?'true':'false');
-      burger.setAttribute('aria-label',open?'Lukk meny':'Åpne meny');
-    });
-    nav.addEventListener('click',function(e){
-      if(e.target.closest('a')){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');}
-    });
   }
 
   // Smooth scroll for in-page links
