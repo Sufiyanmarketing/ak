@@ -273,10 +273,11 @@
 
 /* ---------- final CTA ---------- */
 .ks .final{position:relative;background:var(--navy);color:#fff;overflow:hidden;margin-top:36px}
-.ks .final-media{position:absolute;top:0;right:0;bottom:0;width:48%}
-.ks .final-media img{width:100%;height:100%;object-fit:cover;object-position:75% 18%}
-.ks .final-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.4) 40%,rgba(1,26,55,0) 70%)}
-.ks .final .wrap{position:relative;z-index:1;padding-top:44px;padding-bottom:48px}
+/* Full-width background photo; its left side is already navy, so the text sits there */
+.ks .final-media{position:absolute;inset:0}
+.ks .final-media img{width:100%;height:100%;object-fit:cover;object-position:right center}
+.ks .final-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.85) 30%,rgba(1,26,55,.2) 55%,rgba(1,26,55,0) 70%)}
+.ks .final .wrap{position:relative;z-index:1;padding-top:72px;padding-bottom:76px}
 .ks .final .eyebrow{font-weight:500;letter-spacing:.4em}
 .ks .final .eyebrow::after{display:none}
 .ks .final .eyebrow{margin-bottom:12px}
@@ -284,6 +285,10 @@
 .ks .final p.body{max-width:560px;font-size:clamp(16px,1.8vw,19px);color:#e6eef8;line-height:1.38;margin-bottom:16px}
 
 /* ---------- responsive ---------- */
+@media (max-width:1180px) and (min-width:901px){
+  .ks .final-media::after{background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.88) 40%,rgba(1,26,55,.3) 62%,rgba(1,26,55,0) 78%)}
+  .ks .final p.body{max-width:500px}
+}
 @media (max-width:1080px){
   .ks .grid-4,.ks .mod-grid{grid-template-columns:repeat(2,1fr)}
   .ks .grid-3{grid-template-columns:1fr 1fr}
@@ -333,8 +338,10 @@
   .ks .price-grid{grid-template-columns:1fr;gap:28px}
   .ks .price-grid .divider{display:none}
   .ks .faq-grid{gap:26px}
-  .ks .final-media{width:100%;opacity:.45}
-  .ks .final .wrap{padding-top:56px;padding-bottom:56px}
+  .ks .final-media{position:relative;inset:auto;aspect-ratio:16/10}
+  .ks .final-media img{object-position:78% center}
+  .ks .final-media::after{background:linear-gradient(180deg,rgba(1,26,55,0) 55%,var(--navy) 100%)}
+  .ks .final .wrap{padding-top:8px;padding-bottom:56px}
 }
 @media (max-width:600px){
   .ks{--gut:18px;font-size:16px}
@@ -681,7 +688,7 @@
 <!-- ================= FINAL CTA ================= -->
 <section class="final" id="ks-meld-deg-pa">
   <div class="final-media" aria-hidden="true">
-    <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/24458/images/4c4a7f4-f26d-6c71-0df6-cec7bd7ba4b_hero-anne-karin-retina-2x.png" alt="" loading="lazy">
+    <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/24458/images/a17772-b3fc-e251-27-3e124e303337_Closing_CTA.png" alt="" width="2172" height="724" loading="lazy">
   </div>
   <div class="wrap reveal">
     <p class="eyebrow light">Klar for å ta neste steg?</p>
