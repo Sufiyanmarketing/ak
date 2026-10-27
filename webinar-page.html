@@ -144,7 +144,7 @@ html{scroll-behavior:smooth}
 .rg .center .bar::before,.rg .bar.center::before{margin-left:auto;margin-right:auto}
 .rg .h2{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.1}
 .rg .lead{font-size:clamp(17px,1.6vw,19px);color:var(--text);line-height:1.5}
-.rg .block{padding:80px 0}
+.rg .rg-sec{padding:88px 0}
 
 .rg .btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;border-radius:999px;font-family:"Plus Jakarta Sans","Inter",sans-serif;font-weight:700;color:#fff;text-align:center;text-shadow:0 1px 1px rgba(80,40,10,.35);border:0;cursor:pointer;
   background:linear-gradient(100deg,var(--copper-1) 0%,var(--copper-2) 55%,var(--copper-3) 100%);
@@ -159,8 +159,8 @@ html{scroll-behavior:smooth}
 .rg .icon-circle{width:58px;height:58px;border-radius:50%;background:var(--cyan-soft);color:var(--cyan);display:grid;place-items:center;flex:none}
 .rg .icon-circle .ico{width:28px;height:28px}
 
-.rg .card{background:#fff;border:1px solid var(--card-bd);border-radius:12px;box-shadow:0 4px 18px -12px rgba(11,31,58,.18);transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
-.rg .card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -18px rgba(11,31,58,.28);border-color:#cfe5f5}
+.rg .rg-card{background:#fff;border:1px solid var(--card-bd);border-radius:12px;box-shadow:0 4px 18px -12px rgba(11,31,58,.18);transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.rg .rg-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -18px rgba(11,31,58,.28);border-color:#cfe5f5}
 
 /* fade-in (only hides content when the script is running) */
 .rg.js .fi{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -221,7 +221,8 @@ html{scroll-behavior:smooth}
 .rg .facts strong{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:17px;color:var(--ink);font-weight:700;margin-top:2px}
 
 /* ---------- recognition ---------- */
-.rg .recog .h2{margin-bottom:40px}
+.rg .recog{padding-top:96px}
+.rg .recog .h2{margin-bottom:44px}
 .rg .recog-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
 .rg .recog-card{flex:0 0 calc((100% - 32px) / 3);padding:26px 24px 28px;display:flex;flex-direction:column;gap:16px}
 .rg .recog-card p{font-size:16px;color:var(--text);line-height:1.5}
@@ -238,7 +239,7 @@ html{scroll-behavior:smooth}
 
 /* ---------- for / not for ---------- */
 .rg .forwho{background:var(--tint)}
-.rg .forwho .h2{margin-bottom:40px}
+.rg .forwho .h2{margin-bottom:44px}
 .rg .for-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;max-width:960px;margin:0 auto}
 .rg .for-card{border-radius:var(--radius);padding:34px 32px;background:#fff;border:1px solid var(--card-bd)}
 .rg .for-card.yes{border-color:#bfe0f5;box-shadow:0 18px 40px -26px rgba(11,31,58,.3)}
@@ -254,13 +255,13 @@ html{scroll-behavior:smooth}
 .rg .cta-center{text-align:center;margin-top:44px}
 
 /* ---------- logo strip ---------- */
-.rg .logos-block{padding:52px 0;border-bottom:1px solid #eef3f8}
+.rg .logos-block{padding:64px 0;border-bottom:1px solid #eef3f8}
 .rg .logos-lbl{text-align:center;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px}
 .rg .logos{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
 .rg .logos li{font-family:"Plus Jakarta Sans",sans-serif;background:#fff;border:1px solid var(--card-bd);border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;color:#5d6f86;letter-spacing:.04em}
 
 /* ---------- what you learn ---------- */
-.rg .learn .h2{margin-bottom:40px}
+.rg .learn .h2{margin-bottom:44px}
 .rg .learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:960px;margin:0 auto}
 .rg .learn-card{padding:28px 30px 30px}
 .rg .learn-num{display:inline-grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--cyan-soft);font-family:"Plus Jakarta Sans",sans-serif;font-size:22px;font-weight:800;color:var(--cyan);margin-bottom:18px}
@@ -278,10 +279,10 @@ html{scroll-behavior:smooth}
 .rg .testi-role{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 
 /* ---------- mid CTA ---------- */
-.rg .mid-cta{text-align:center;padding:60px 0}
+.rg .mid-cta{text-align:center;padding:72px 0 24px}
 
 /* ---------- about ---------- */
-.rg .about{background:#fff;padding:72px 0;overflow:hidden}
+.rg .about{background:#fff;padding:72px 0 96px;overflow:hidden}
 .rg .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .rg .about h2{margin-bottom:22px}
 .rg .about p{font-size:16.5px;line-height:1.6;color:var(--text);margin-bottom:16px;max-width:520px}
@@ -369,7 +370,7 @@ html{scroll-behavior:smooth}
 }
 @media (max-width:600px){
   .rg{--gut:18px;font-size:16px}
-  .rg .block{padding:60px 0}
+  .rg .rg-sec{padding:64px 0}
   .rg .hero-logo img{height:46px}
   .rg .rg-bar .rg-wrap{height:64px}
   .rg .rg-bar .logo img{height:36px}
@@ -535,21 +536,21 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- ── RECOGNITION ── -->
-<div class="block recog">
+<div class="rg-sec recog">
   <div class="rg-wrap">
     <h2 class="h2 bar center fi">Kjenner du deg igjen i dette?</h2>
     <div class="recog-grid">
-      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-calendar"/></svg></span><p>Du forbereder deg grundig og presenterer saken tydelig &mdash; og f&aring;r likevel &laquo;vi tar det til neste kvartal&raquo;</p></div>
-      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-crown"/></svg></span><p>En kollega med et svakere forslag fikk ja. Ditt ble utsatt&nbsp;igjen</p></div>
-      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-users"/></svg></span><p>Teamet nikker i m&oslash;tet &mdash; men tre uker etterpå har ingen fulgt opp</p></div>
-      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-bulb"/></svg></span><p>Du vet hva som er riktig vei videre, men klarer ikke &aring; f&aring; resten av rommet til &aring; se det samme</p></div>
-      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-chat"/></svg></span><p>Du forlater m&oslash;tet og tenker: &laquo;Jeg burde formulert meg annerledes&raquo;</p></div>
+      <div class="rg-card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-calendar"/></svg></span><p>Du forbereder deg grundig og presenterer saken tydelig &mdash; og f&aring;r likevel &laquo;vi tar det til neste kvartal&raquo;</p></div>
+      <div class="rg-card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-crown"/></svg></span><p>En kollega med et svakere forslag fikk ja. Ditt ble utsatt&nbsp;igjen</p></div>
+      <div class="rg-card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-users"/></svg></span><p>Teamet nikker i m&oslash;tet &mdash; men tre uker etterpå har ingen fulgt opp</p></div>
+      <div class="rg-card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-bulb"/></svg></span><p>Du vet hva som er riktig vei videre, men klarer ikke &aring; f&aring; resten av rommet til &aring; se det samme</p></div>
+      <div class="rg-card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-chat"/></svg></span><p>Du forlater m&oslash;tet og tenker: &laquo;Jeg burde formulert meg annerledes&raquo;</p></div>
     </div>
   </div>
 </div>
 
 <!-- ── COST OF INACTION ── -->
-<div class="block cost">
+<div class="rg-sec cost">
   <div class="rg-narrow center fi">
     <h2 class="h2 bar center">Hva koster det deg &aring; fortsette som n&aring;?</h2>
     <p class="cost-p">Ikke i kroner. Men i karriere, innflytelse og resultater.</p>
@@ -564,7 +565,7 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- ── FOR / NOT FOR ── -->
-<div class="block forwho">
+<div class="rg-sec forwho">
   <div class="rg-wrap">
     <h2 class="h2 bar center fi">For hvem er dette webinaret?</h2>
     <div class="for-grid">
@@ -609,26 +610,26 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- ── WHAT YOU LEARN ── -->
-<div class="block learn">
+<div class="rg-sec learn">
   <div class="rg-wrap">
     <h2 class="h2 bar center fi">Dette l&aelig;rer du p&aring; webinaret</h2>
     <div class="learn-grid">
-      <div class="card learn-card fi">
+      <div class="rg-card learn-card fi">
         <span class="learn-num">01</span>
         <h3>Hvorfor gode argumenter ikke alltid vinner</h3>
         <p>Hva som skjer psykologisk n&aring;r beslutningstagere sier &laquo;vi tar det til neste kvartal&raquo; &mdash; og hva du konkret endrer for at de sier ja n&aring;.</p>
       </div>
-      <div class="card learn-card fi">
+      <div class="rg-card learn-card fi">
         <span class="learn-num">02</span>
         <h3>De tre drivkreftene i et overbevisende budskap</h3>
         <p>Logos, etos og patos &mdash; ikke som abstrakte begreper, men som konkrete grep du bruker i neste presentasjon. Du forlater webinaret med en sjekkliste.</p>
       </div>
-      <div class="card learn-card fi">
+      <div class="rg-card learn-card fi">
         <span class="learn-num">03</span>
         <h3>Slik h&aring;ndterer du motstand uten &aring; miste autoritet</h3>
         <p>Hva du sier n&aring;r noen utfordrer deg i m&oslash;terommet &mdash; og hvordan du snur en innvending til din fordel.</p>
       </div>
-      <div class="card learn-card fi">
+      <div class="rg-card learn-card fi">
         <span class="learn-num">04</span>
         <h3>En arbeidsdag med gjennomslag &mdash; hvordan ser den ut?</h3>
         <p>Konkrete eksempler fra norske organisasjoner. Gjenkjennbare situasjoner, reelle l&oslash;sninger.</p>
@@ -638,7 +639,7 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- ── TESTIMONIAL ── -->
-<div class="block testi">
+<div class="rg-sec testi">
   <div class="rg-wrap">
     <div class="testi-card fi">
       <div class="testi-mark" aria-hidden="true">&ldquo;</div>
