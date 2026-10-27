@@ -15,3 +15,6 @@ Statisk landingsside for Krystallklart budskap. Åpne `index.html` i nettleseren
 
 ## Kajabi
 `kajabi/kajabi-landing.html` er en selvstendig versjon (HTML + CSS + JS + bilder i én fil) som limes inn i en «Custom Code»-blokk i Kajabi. All CSS er avgrenset til `.kob`, så den ikke kolliderer med Kajabi-temaet. Bytt bilder ved å endre `--img-hero` / `--img-coach` øverst i `<style>`.
+
+## Al Anab Al Ahmer Cafeteria
+`cafeteria/index.html` – single-file website for Al Anab Al Ahmer Cafeteria (Al Majaz, Sharjah). No online ordering: Call / WhatsApp buttons, full menu with category filter, and a Google Maps location section. Menu items and prices live in the `MENU` array in the page's `<script>`.
