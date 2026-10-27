@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gratis webinar: Gjennomslag i beslutningsrom | Krystallklart Budskap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── KAJABI FULL OVERRIDE ── */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+/* Nuclear option - hide ALL Kajabi chrome */
+header, footer, nav,
+.site-header, .site-footer,
+.kjb-page-header, .kjb-footer,
+.main-navigation, .navigation,
+[class*="site-header"], [class*="site-footer"],
+[class*="kjb-header"], [class*="kjb-footer"],
+[class*="header--"], [class*="footer--"],
+[class*="navigation"], [class*="nav-bar"],
+.top-bar, .bottom-bar,
+.breadcrumb, .breadcrumbs,
+.kjb-page-footer, .kjb-page-header,
+#section-header, [data-section-id="header"] {
+  display: none !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
+}
+/* Kill the .sizer padding that creates the top gap */
+.sizer {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+/* Kill section.section padding */
+section.section {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* Kill the container wrapper */
+.container {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+/* Our page block - full width, normal scroll */
+.block-type--code {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  z-index: 999999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+/* Make html+body the scroll container */
+html {
+  position: relative !important;
+  height: auto !important;
+  overflow: auto !important;
+}
+body {
+  position: relative !important;
+  height: auto !important;
+  overflow: auto !important;
+}
+/* Remove all wrapper padding/margin */
+.sections__section,
+[class*="sections_"],
+.site-main, main,
+.content-wrapper, .page-content,
+.container, .row {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+html{scroll-behavior:smooth}
+
+/* =========================================================
+   Webinar page – same design system as the sales page
+   (navy / cyan / copper, Plus Jakarta Sans + Inter).
+   Everything is scoped to .rg. Class names deliberately avoid
+   words the Kajabi override above hides (header, footer, nav,
+   navigation, container, section, row, top-bar ...).
+   ========================================================= */
+.rg{
+  --navy:#011a37;
+  --navy-2:#0a2647;
+  --ink:#0b1f3a;
+  --text:#2c3e57;
+  --muted:#4a5b72;
+  --cyan:#10a5ec;
+  --cyan-2:#0b8fd6;
+  --cyan-soft:#e6f4fd;
+  --card-bd:#e2ecf5;
+  --tint:#f2f8fd;
+  --copper-1:#d6995c;
+  --copper-2:#b8733a;
+  --copper-3:#93501f;
+  --radius:14px;
+  --max:1120px;
+  --gut:24px;
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--text);
+  background:#fff;
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+  position:relative;
+}
+.rg *,.rg *::before,.rg *::after{box-sizing:border-box;margin:0;padding:0}
+.rg img{display:block;max-width:100%}
+.rg ul,.rg ol{list-style:none}
+.rg a{color:inherit;text-decoration:none}
+.rg h1,.rg h2,.rg h3{font-family:"Plus Jakarta Sans","Inter",sans-serif;color:var(--ink);letter-spacing:-.02em}
+.rg h3{letter-spacing:-.008em}
+.rg .ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.rg .rg-wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.rg .rg-narrow{max-width:760px;margin:0 auto;padding:0 var(--gut)}
+.rg .accent{color:var(--cyan)}
+.rg .center{text-align:center}
+
+/* ---------- shared bits ---------- */
+.rg .eyebrow{font-size:13px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--ink)}
+.rg .eyebrow::after{content:"";display:block;width:52px;height:3px;border-radius:3px;background:var(--cyan);margin:16px 0 22px}
+.rg .eyebrow.light{color:#fff}
+.rg .center .eyebrow::after,.rg .eyebrow.center::after{margin-left:auto;margin-right:auto}
+/* cyan accent bar above a heading that has no eyebrow text */
+.rg .bar::before{content:"";display:block;width:52px;height:3px;border-radius:3px;background:var(--cyan);margin:0 0 22px}
+.rg .center .bar::before,.rg .bar.center::before{margin-left:auto;margin-right:auto}
+.rg .h2{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.1}
+.rg .lead{font-size:clamp(17px,1.6vw,19px);color:var(--text);line-height:1.5}
+.rg .block{padding:80px 0}
+
+.rg .btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;border-radius:999px;font-family:"Plus Jakarta Sans","Inter",sans-serif;font-weight:700;color:#fff;text-align:center;text-shadow:0 1px 1px rgba(80,40,10,.35);border:0;cursor:pointer;
+  background:linear-gradient(100deg,var(--copper-1) 0%,var(--copper-2) 55%,var(--copper-3) 100%);
+  box-shadow:0 10px 24px -10px rgba(156,90,38,.65),inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.rg .btn:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 16px 30px -12px rgba(156,90,38,.75),inset 0 1px 0 rgba(255,255,255,.35)}
+.rg .btn:focus-visible,.rg a:focus-visible,.rg button:focus-visible,.rg input:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.rg .btn .ico{width:22px;height:22px;stroke-width:2}
+.rg .btn-xl{font-size:clamp(19px,2vw,23px);padding:20px 46px}
+.rg .btn-lg{font-size:clamp(18px,1.8vw,21px);padding:18px 42px}
+
+.rg .icon-circle{width:58px;height:58px;border-radius:50%;background:var(--cyan-soft);color:var(--cyan);display:grid;place-items:center;flex:none}
+.rg .icon-circle .ico{width:28px;height:28px}
+
+.rg .card{background:#fff;border:1px solid var(--card-bd);border-radius:12px;box-shadow:0 4px 18px -12px rgba(11,31,58,.18);transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.rg .card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -18px rgba(11,31,58,.28);border-color:#cfe5f5}
+
+/* fade-in (only hides content when the script is running) */
+.rg.js .fi{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rg.js .fi.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rg.js .fi{opacity:1;transform:none;transition:none}.rg .btn{transition:none}}
+
+/* ---------- announcement bar ---------- */
+.rg .rg-ann{background:var(--navy-2);color:#cfe3f5;text-align:center;padding:11px 20px;font-size:14px;font-weight:500;letter-spacing:.01em;border-bottom:1px solid rgba(255,255,255,.08)}
+.rg .rg-ann::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-right:10px;vertical-align:middle;box-shadow:0 0 0 4px rgba(16,165,236,.2)}
+
+/* ---------- sticky bar (appears after scrolling) ---------- */
+.rg .rg-bar{position:fixed;top:0;left:0;right:0;z-index:997;background:rgba(1,26,55,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.45);transform:translateY(-110%);transition:transform .35s ease}
+.rg .rg-bar.show{transform:none}
+.rg .rg-bar .rg-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.rg .rg-bar .logo img{height:44px;width:auto}
+.rg .rg-bar .btn{padding:11px 24px;font-size:16px}
+
+/* ---------- hero ---------- */
+.rg .hero{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.rg .hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 70% at 85% 40%,rgba(16,165,236,.16),transparent 70%),
+  radial-gradient(ellipse 50% 60% at 0% 100%,rgba(16,165,236,.08),transparent 70%)}
+.rg .hero-logo{position:relative;z-index:2;padding-top:30px}
+.rg .hero-logo img{height:58px;width:auto}
+.rg .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:center;padding:48px 0 88px}
+.rg .hero .eyebrow{font-weight:500;letter-spacing:.3em;font-size:13.5px;line-height:1.6}
+.rg .hero h1{color:#fff;font-size:clamp(32px,4vw,46px);font-weight:800;line-height:1.12;letter-spacing:-.03em;margin-bottom:24px}
+.rg .hero-lead{font-size:clamp(17px,1.8vw,20px);line-height:1.55;color:#dbe7f4;margin-bottom:34px;max-width:560px}
+
+.rg .cd-label{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#9fb6cf;margin-bottom:12px}
+.rg .cd{display:flex;gap:10px;align-items:center;margin-bottom:26px}
+.rg .cd-box{background:rgba(255,255,255,.06);border:1px solid rgba(16,165,236,.3);border-radius:12px;padding:12px 10px;min-width:76px;text-align:center}
+.rg .cd-num{font-family:"Plus Jakarta Sans",sans-serif;font-size:32px;font-weight:800;color:#fff;line-height:1;display:block;font-variant-numeric:tabular-nums}
+.rg .cd-lbl{font-size:10.5px;color:#9fb6cf;text-transform:uppercase;letter-spacing:.14em;margin-top:6px;display:block}
+.rg .cd-sep{font-size:24px;color:var(--cyan);font-weight:700;opacity:.7;margin-bottom:16px}
+
+.rg .hero-date{display:inline-flex;align-items:center;gap:12px;color:#e6eef8;font-size:16px;font-weight:500;margin-bottom:30px;background:rgba(255,255,255,.06);padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+.rg .hero-date .ico{width:20px;height:20px;color:var(--cyan)}
+.rg .hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.rg .hero-trust{font-size:14px;color:#9fb6cf;padding-left:6px}
+
+/* whole portrait at its own proportions – only its size changes */
+.rg .hero-photo{position:relative;justify-self:end;width:100%;max-width:400px}
+.rg .hero-photo::before{content:"";position:absolute;inset:-14px;border-radius:24px;border:1px solid rgba(16,165,236,.35);transform:translate(14px,14px)}
+.rg .hero-photo img{position:relative;width:100%;height:auto;aspect-ratio:801/980;object-fit:cover;border-radius:16px;box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+.rg .hero-photo figcaption{position:absolute;left:-28px;bottom:28px;background:#fff;color:var(--ink);border-radius:12px;padding:12px 16px;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);font-size:13.5px;line-height:1.35}
+.rg .hero-photo figcaption strong{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:15px}
+.rg .hero-photo figcaption span{color:var(--muted)}
+
+/* ---------- date strip ---------- */
+.rg .facts-wrap{position:relative;z-index:3;margin-top:-44px}
+.rg .facts{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid #dcebf7;border-radius:var(--radius);padding:22px 10px;box-shadow:0 24px 48px -28px rgba(11,31,58,.35)}
+.rg .facts li{display:flex;align-items:center;gap:18px;padding:4px 28px;border-left:1px solid #d6e6f3}
+.rg .facts li:first-child{border-left:0}
+.rg .facts .icon-circle{width:52px;height:52px}
+.rg .facts .icon-circle .ico{width:24px;height:24px}
+.rg .facts small{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rg .facts strong{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:17px;color:var(--ink);font-weight:700;margin-top:2px}
+
+/* ---------- recognition ---------- */
+.rg .recog .h2{margin-bottom:40px}
+.rg .recog-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.rg .recog-card{flex:0 0 calc((100% - 32px) / 3);padding:26px 24px 28px;display:flex;flex-direction:column;gap:16px}
+.rg .recog-card p{font-size:16px;color:var(--text);line-height:1.5}
+
+/* ---------- cost of inaction ---------- */
+.rg .cost{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.rg .cost::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 120%,rgba(16,165,236,.18),transparent 70%)}
+.rg .cost .rg-narrow{position:relative}
+.rg .cost h2{color:#fff;margin-bottom:30px}
+.rg .cost-p{font-size:18px;line-height:1.7;color:#cfdcea;margin-top:18px}
+.rg .cost-p strong{color:#fff;font-weight:600}
+.rg .cost-hl{background:rgba(16,165,236,.1);border:1px solid rgba(16,165,236,.25);border-left:3px solid var(--cyan);border-radius:0 12px 12px 0;padding:20px 26px;text-align:left;margin:24px 0 8px}
+.rg .cost-hl p{font-size:17px;color:#e6eef8;line-height:1.65}
+
+/* ---------- for / not for ---------- */
+.rg .forwho{background:var(--tint)}
+.rg .forwho .h2{margin-bottom:40px}
+.rg .for-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;max-width:960px;margin:0 auto}
+.rg .for-card{border-radius:var(--radius);padding:34px 32px;background:#fff;border:1px solid var(--card-bd)}
+.rg .for-card.yes{border-color:#bfe0f5;box-shadow:0 18px 40px -26px rgba(11,31,58,.3)}
+.rg .for-card h3{font-size:19px;font-weight:800;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.rg .for-card ul{display:flex;flex-direction:column;gap:14px}
+.rg .for-card li{display:flex;align-items:flex-start;gap:14px;font-size:16px;line-height:1.45;color:var(--text)}
+.rg .mark{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none;margin-top:-2px}
+.rg .mark .ico{width:14px;height:14px;stroke-width:2.8}
+.rg .yes .mark{background:var(--cyan-soft);color:var(--cyan)}
+.rg .no .mark{background:#f1f3f6;color:#9aa6b5}
+.rg .no h3{color:var(--muted)}
+.rg .no li{color:var(--muted)}
+.rg .cta-center{text-align:center;margin-top:44px}
+
+/* ---------- logo strip ---------- */
+.rg .logos-block{padding:52px 0;border-bottom:1px solid #eef3f8}
+.rg .logos-lbl{text-align:center;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px}
+.rg .logos{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.rg .logos li{font-family:"Plus Jakarta Sans",sans-serif;background:#fff;border:1px solid var(--card-bd);border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;color:#5d6f86;letter-spacing:.04em}
+
+/* ---------- what you learn ---------- */
+.rg .learn .h2{margin-bottom:40px}
+.rg .learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:960px;margin:0 auto}
+.rg .learn-card{padding:28px 30px 30px}
+.rg .learn-num{display:inline-grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--cyan-soft);font-family:"Plus Jakarta Sans",sans-serif;font-size:22px;font-weight:800;color:var(--cyan);margin-bottom:18px}
+.rg .learn-card h3{font-size:19.5px;font-weight:700;line-height:1.3;margin-bottom:10px}
+.rg .learn-card p{font-size:16px;color:var(--muted);line-height:1.5}
+
+/* ---------- testimonial ---------- */
+.rg .testi{background:var(--tint)}
+.rg .testi-card{position:relative;max-width:780px;margin:0 auto;background:#fff;border:1px solid #dcebf7;border-radius:var(--radius);padding:44px 48px 40px;text-align:center;box-shadow:0 18px 40px -28px rgba(11,31,58,.3)}
+.rg .testi-mark{font-family:Georgia,serif;font-size:96px;line-height:.6;color:var(--cyan);font-weight:700;height:44px;margin-bottom:6px}
+.rg .stars{display:flex;justify-content:center;gap:4px;color:var(--copper-1);margin-bottom:18px}
+.rg .stars .ico{width:20px;height:20px;fill:currentColor;stroke:none}
+.rg .testi-quote{font-family:"Plus Jakarta Sans",sans-serif;font-size:clamp(19px,2.2vw,23px);font-weight:700;color:var(--ink);line-height:1.45;margin-bottom:22px}
+.rg .testi-author{font-size:15px;font-weight:700;color:var(--ink)}
+.rg .testi-role{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* ---------- mid CTA ---------- */
+.rg .mid-cta{text-align:center;padding:60px 0}
+
+/* ---------- about ---------- */
+.rg .about{background:#fff;padding:72px 0;overflow:hidden}
+.rg .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.rg .about h2{margin-bottom:22px}
+.rg .about p{font-size:16.5px;line-height:1.6;color:var(--text);margin-bottom:16px;max-width:520px}
+.rg .about strong{color:var(--ink)}
+/* whole photo at its own proportions – only its size changes */
+.rg .about-photo{width:100%;max-width:440px;justify-self:end}
+.rg .about-photo img{width:100%;height:auto;border-radius:0 14px 14px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+
+/* ---------- bottom CTA ---------- */
+.rg .final{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.rg .final-media{position:absolute;inset:0}
+.rg .final-media img{width:100%;height:100%;object-fit:cover;object-position:right center}
+.rg .final-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.85) 30%,rgba(1,26,55,.2) 55%,rgba(1,26,55,0) 70%)}
+.rg .final .rg-wrap{position:relative;z-index:1;padding-top:76px;padding-bottom:80px}
+.rg .final .eyebrow{font-weight:500;letter-spacing:.4em}
+.rg .final h2{color:#fff;font-size:clamp(36px,5vw,56px);font-weight:800;line-height:1.05;margin-bottom:16px}
+.rg .final p.body{max-width:540px;font-size:clamp(16px,1.8vw,19px);color:#e6eef8;line-height:1.45;margin-bottom:26px}
+.rg .final-meta{display:flex;align-items:center;gap:8px;font-size:14px;color:#9fb6cf;margin-top:14px}
+.rg .final-meta .ico{width:16px;height:16px}
+
+/* ---------- page foot ---------- */
+.rg .rg-foot{background:#00112a;color:#7f93ab;text-align:center;padding:28px 20px;font-size:13.5px;line-height:1.8}
+.rg .rg-foot a{color:#a9bdd3}
+.rg .rg-foot a:hover{color:#fff}
+
+/* ---------- modal ---------- */
+.rg .modal-overlay{position:fixed;inset:0;background:rgba(1,16,36,.7);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.rg .modal-overlay.open{opacity:1;pointer-events:auto}
+.rg .modal-box{background:#fff;border-radius:18px;width:100%;max-width:480px;padding:0 0 32px;position:relative;transform:scale(.94) translateY(20px);transition:transform .3s cubic-bezier(.34,1.4,.64,1);max-height:95vh;overflow-y:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.rg .modal-overlay.open .modal-box{transform:none}
+.rg .modal-top{background:var(--navy);color:#fff;padding:34px 36px 26px;border-radius:18px 18px 0 0;text-align:center;position:relative;overflow:hidden}
+.rg .modal-top::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 130%,rgba(16,165,236,.3),transparent 70%)}
+.rg .modal-top>*{position:relative}
+.rg .modal-box h2{font-size:28px;font-weight:800;color:#fff;margin-bottom:10px}
+.rg .modal-date-line{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:#e6eef8;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 14px}
+.rg .modal-date-line .ico{width:16px;height:16px;color:var(--cyan)}
+.rg .modal-close{position:absolute;top:12px;right:12px;z-index:2;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);border:0;cursor:pointer;color:#fff;display:grid;place-items:center;transition:background .2s}
+.rg .modal-close:hover{background:rgba(255,255,255,.22)}
+.rg .modal-close .ico{width:18px;height:18px;stroke-width:2.2}
+.rg .modal-body{padding:28px 36px 0}
+.rg .mf-group{margin-bottom:16px}
+.rg .mf-group label{display:block;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:.14em;text-transform:uppercase}
+.rg .mf-group input{width:100%;border:1.5px solid #d6e2ee;border-radius:10px;padding:14px 16px;font-size:16px;color:var(--ink);font-family:inherit;outline:none;background:#fff;transition:border-color .2s,box-shadow .2s}
+.rg .mf-group input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(16,165,236,.15)}
+.rg .mf-group input::placeholder{color:#b3c0cf}
+.rg .mf-group input.error,.rg .phone-wrap:has(input.error){border-color:#e05252}
+.rg .phone-wrap{display:flex;border:1.5px solid #d6e2ee;border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.rg .phone-wrap:focus-within{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(16,165,236,.15)}
+.rg .phone-prefix{display:flex;align-items:center;gap:8px;padding:0 14px;background:var(--tint);border-right:1.5px solid #d6e2ee;font-size:15px;font-weight:600;color:var(--ink);white-space:nowrap;flex-shrink:0}
+.rg .phone-prefix svg{width:22px;height:16px;border-radius:2px;display:block}
+.rg .phone-wrap .phone-input{border:0;border-radius:0;box-shadow:none}
+.rg .phone-wrap .phone-input:focus{box-shadow:none}
+.rg .mf-submit{width:100%;margin-top:8px;padding:18px 20px;font-size:17px}
+.rg .mf-submit:disabled{background:#e5e7eb;color:#9ca3af;cursor:not-allowed;transform:none;box-shadow:none;text-shadow:none}
+.rg .mf-trust{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;font-size:13.5px;color:var(--muted)}
+.rg .mf-trust .ico{width:15px;height:15px}
+.rg .mf-error{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;font-size:14px;padding:10px 14px;border-radius:8px;margin-bottom:16px;display:none}
+.rg .mf-error.show{display:block}
+.rg .mf-success{text-align:center;padding:24px 36px 0;display:none}
+.rg .mf-success .icon-circle{margin:0 auto 16px;width:64px;height:64px}
+.rg .mf-success h3{font-size:24px;margin-bottom:10px}
+.rg .mf-success p{font-size:15px;color:var(--muted);line-height:1.6}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .rg .hero-grid{grid-template-columns:1fr 320px;gap:36px}
+  .rg .hero-photo figcaption{left:-16px}
+  .rg .recog-card{flex-basis:calc((100% - 16px) / 2)}
+}
+@media (max-width:800px){
+  .rg .hero-grid{grid-template-columns:1fr;padding:32px 0 96px}
+  .rg .hero-photo{justify-self:center;max-width:320px;margin-top:16px}
+  .rg .hero-photo figcaption{left:50%;transform:translateX(-50%);bottom:-22px;white-space:nowrap}
+  .rg .facts{grid-template-columns:1fr;padding:10px 6px}
+  .rg .facts li{border-left:0;border-top:1px solid #e3edf6;padding:14px 18px}
+  .rg .facts li:first-child{border-top:0}
+  .rg .for-grid,.rg .learn-grid,.rg .about-grid{grid-template-columns:1fr}
+  .rg .about-photo{order:-1;justify-self:center;max-width:380px}
+  .rg .about-photo img{-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 22%);mask-image:linear-gradient(0deg,transparent 0,#000 22%);border-radius:14px 14px 0 0}
+  .rg .final-media{position:relative;inset:auto;aspect-ratio:16/10}
+  .rg .final-media img{object-position:78% center}
+  .rg .final-media::after{background:linear-gradient(180deg,rgba(1,26,55,0) 55%,var(--navy) 100%)}
+  .rg .final .rg-wrap{padding-top:8px;padding-bottom:56px}
+}
+@media (max-width:600px){
+  .rg{--gut:18px;font-size:16px}
+  .rg .block{padding:60px 0}
+  .rg .hero-logo img{height:46px}
+  .rg .rg-bar .rg-wrap{height:64px}
+  .rg .rg-bar .logo img{height:36px}
+  .rg .rg-bar .btn{padding:9px 16px;font-size:14.5px}
+  .rg .rg-bar .btn .ico{display:none}
+  .rg .cd{gap:6px}
+  .rg .cd-box{min-width:0;flex:1;padding:10px 6px}
+  .rg .cd-num{font-size:26px}
+  .rg .cd-sep{display:none}
+  .rg .hero-cta,.rg .hero-cta .btn{width:100%}
+  .rg .hero-cta{align-items:stretch}
+  .rg .hero-trust{text-align:center;padding-left:0}
+  .rg .btn-xl,.rg .btn-lg{width:100%;padding-left:20px;padding-right:20px;font-size:18px}
+  .rg .btn-xl .ico,.rg .btn-lg .ico{display:none}
+  .rg .recog-card{flex-basis:100%}
+  .rg .for-card{padding:28px 22px}
+  .rg .testi-card{padding:36px 22px 32px}
+  .rg .modal-top{padding:30px 22px 22px}
+  .rg .modal-body{padding:24px 22px 0}
+  .rg .mf-success{padding:24px 22px 0}
+  .rg .modal-box h2{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="rg">
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="rg-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="rg-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="rg-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="rg-calendar" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></symbol>
+    <symbol id="rg-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2.5"/></symbol>
+    <symbol id="rg-hourglass" viewBox="0 0 24 24"><path d="M6 2.5h12M6 21.5h12M7 2.5c0 5 10 5 10 9.5S7 16.5 7 21.5M17 2.5c0 5-10 5-10 9.5s10 4.5 10 9.5"/></symbol>
+    <symbol id="rg-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/><path d="M5 19h14"/></symbol>
+    <symbol id="rg-users" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><circle cx="5.5" cy="9.5" r="2.3"/><circle cx="18.5" cy="9.5" r="2.3"/><path d="M7 19.5c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2zM2 18.5c0-2.3 1.5-4 3.5-4.2M22 18.5c0-2.3-1.5-4-3.5-4.2"/></symbol>
+    <symbol id="rg-bulb" viewBox="0 0 24 24"><path d="M9 17.5h6M9.8 20.5h4.4"/><path d="M12 5.5a5.5 5.5 0 0 0-3.3 9.9c.5.4.8 1 .8 1.6v.5h5v-.5c0-.6.3-1.2.8-1.6A5.5 5.5 0 0 0 12 5.5z"/><path d="M12 1v1.5M3.5 4.5l1.1 1.1M20.5 4.5l-1.1 1.1M1 11.5h1.5M21.5 11.5H23"/></symbol>
+    <symbol id="rg-chat" viewBox="0 0 24 24"><path d="M3 11.5c0-4.4 4-7.5 8.5-7.5s8.5 3.1 8.5 7.5-4 7.5-8.5 7.5c-1.3 0-2.6-.2-3.7-.7L3.5 20l1.3-3.8C3.7 14.8 3 13.2 3 11.5z"/><circle cx="8" cy="11.5" r=".6"/><circle cx="11.5" cy="11.5" r=".6"/><circle cx="15" cy="11.5" r=".6"/></symbol>
+    <symbol id="rg-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.9l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/></symbol>
+    <symbol id="rg-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  </defs>
+</svg>
+
+<!-- POPUP MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="mfTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Lukk"><svg class="ico"><use href="#rg-x"/></svg></button>
+    <div class="modal-top">
+      <h2 id="mfTitle">Sikre din plass!</h2>
+      <p class="modal-date-line"><svg class="ico"><use href="#rg-calendar"/></svg>torsdag 5. november kl. 11:00</p>
+    </div>
+    <div class="modal-body">
+    <div class="mf-error" id="mfError">Alle felt m&aring; fylles inn for &aring; g&aring; videre.</div>
+
+    <!-- Native POST straight to Kajabi form 2149542955.
+         Fields match the Kajabi form exactly:
+           Fornavn        (TextField)  -> form_submission[name]
+           E-postadresse  (EmailField) -> form_submission[email]
+           Telefonnummer  (PhoneField) -> form_submission[phone_number]
+
+         REQUIRES reCAPTCHA to be OFF in Kajabi:
+         Settings > Form Settings > "Add reCAPTCHA to single opt-in forms"
+         Leave it on and Kajabi rejects every submission from this form. -->
+    <form id="mfForm"
+          method="POST"
+          action="https://webinar.krystallklart.no/forms/2149542955/form_submissions"
+          accept-charset="UTF-8">
+      <input type="hidden" name="authenticity_token" id="mfCsrf" value="">
+      <input type="hidden" name="form_submission[phone_number]" id="mfPhoneFull" value="">
+
+      <div class="mf-group">
+        <label for="mfFornavn">Fornavn</label>
+        <input type="text" id="mfFornavn" name="form_submission[name]" placeholder="Kari" autocomplete="given-name">
+      </div>
+      <div class="mf-group">
+        <label for="mfEmail">E-postadresse</label>
+        <input type="email" id="mfEmail" name="form_submission[email]" placeholder="kari@selskap.no" autocomplete="email">
+      </div>
+      <div class="mf-group">
+        <label for="mfTelefon">Telefonnummer</label>
+        <div class="phone-wrap">
+          <div class="phone-prefix">
+            <svg viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" fill="#BA0C2F"/><path d="M0 8h22M8 0v16" stroke="#fff" stroke-width="4"/><path d="M0 8h22M8 0v16" stroke="#00205B" stroke-width="2"/></svg>
+            +47
+          </div>
+          <!-- no name attr: JS copies this into the hidden field with the +47 prefix -->
+          <input class="phone-input" type="tel" id="mfTelefon" placeholder="000 00 000" autocomplete="tel">
+        </div>
+      </div>
+
+      <button type="submit" class="btn mf-submit" id="mfSubmit">Sikre min plass p&aring; gratis webinar &rarr;</button>
+      <p class="mf-trust"><svg class="ico"><use href="#rg-lock"/></svg>Ingen forpliktelser &middot; Avmeld n&aring;r som helst</p>
+    </form>
+    </div>
+
+    <div class="mf-success" id="mfSuccess">
+      <div class="icon-circle"><svg class="ico"><use href="#rg-check"/></svg></div>
+      <h3>Du er p&aring;meldt!</h3>
+      <p>Vi sees torsdag 5. november kl. 11:00.<br>Sjekk innboksen din for bekreftelse.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY BAR -->
+<div class="rg-bar" id="stkBtn">
+  <div class="rg-wrap">
+    <a class="logo" href="#rg-top" aria-label="Krystallklart budskap – til toppen">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159461574/settings_images/d2a3c85-350c-fbf7-ae3a-64c6d07d1df_logo-horizontal-compact-kopi.png" alt="Krystallklart budskap" width="230" height="55">
+    </a>
+    <a href="#" class="btn cta-trigger">Sikre min plass <svg class="ico"><use href="#rg-arrow"/></svg></a>
+  </div>
+</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="rg-ann" id="rg-top">Gratis webinar for ledere og fagpersoner som vil bli h&oslash;rt n&aring;r det teller</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="rg-wrap hero-logo">
+    <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159461574/settings_images/d2a3c85-350c-fbf7-ae3a-64c6d07d1df_logo-horizontal-compact-kopi.png" alt="Krystallklart budskap" width="243" height="58">
+  </div>
+  <div class="rg-wrap">
+    <div class="hero-grid">
+      <div class="hero-left fi">
+        <p class="eyebrow light">Gratis webinar for ledere og senior fagspesialist</p>
+        <h1>Slik f&aring;r du <span class="accent">gjennomslag</span> der det teller mest &mdash; i beslutningsrom, ledergrupper og strategim&oslash;ter</h1>
+        <p class="hero-lead">Du kan faget ditt. Du vet hva som er riktig vei videre.<br>N&aring; l&aelig;rer du &aring; kommunisere slik at folk faktisk sier ja.</p>
+        <!-- COUNTDOWN -->
+        <p class="cd-label">Webinaret starter om</p>
+        <div class="cd">
+          <div class="cd-box"><span class="cd-num" id="cdD">00</span><span class="cd-lbl">Dager</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-num" id="cdH">00</span><span class="cd-lbl">Timer</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-num" id="cdM">00</span><span class="cd-lbl">Min</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-num" id="cdS">00</span><span class="cd-lbl">Sek</span></div>
+        </div>
+        <p class="hero-date"><svg class="ico"><use href="#rg-calendar"/></svg>torsdag 5. november kl. 11:00</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-xl cta-trigger">Sikre min plass p&aring; gratis webinar <svg class="ico"><use href="#rg-arrow"/></svg></a>
+          <p class="hero-trust">100% gratis &middot; Ingen forpliktelser</p>
+        </div>
+      </div>
+      <figure class="hero-photo fi">
+        <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/24458/images/fd1832c-78fe-4e1b-ae0-8c7a504ecb41_40E471CB-2054-43A0-8D61-742237884719_1_105_c_2_.jpeg"
+             alt="Anne Karin Nordskag" width="801" height="980" loading="eager" decoding="async">
+        <figcaption><strong>Anne Karin Nordskag</strong><span>Siviløkonom og kommunikasjonstrener</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!-- ── DATE STRIP ── -->
+<div class="rg-wrap facts-wrap fi">
+  <ul class="facts">
+    <li><span class="icon-circle"><svg class="ico"><use href="#rg-calendar"/></svg></span><div><small>Neste webinar</small><strong>torsdag 5. november 2026</strong></div></li>
+    <li><span class="icon-circle"><svg class="ico"><use href="#rg-clock"/></svg></span><div><small>Klokkeslett</small><strong>kl. 11:00</strong></div></li>
+    <li><span class="icon-circle"><svg class="ico"><use href="#rg-hourglass"/></svg></span><div><small>Varighet</small><strong>60 minutter</strong></div></li>
+  </ul>
+</div>
+
+<!-- ── RECOGNITION ── -->
+<div class="block recog">
+  <div class="rg-wrap">
+    <h2 class="h2 bar center fi">Kjenner du deg igjen i dette?</h2>
+    <div class="recog-grid">
+      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-calendar"/></svg></span><p>Du forbereder deg grundig og presenterer saken tydelig &mdash; og f&aring;r likevel &laquo;vi tar det til neste kvartal&raquo;</p></div>
+      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-crown"/></svg></span><p>En kollega med et svakere forslag fikk ja. Ditt ble utsatt&nbsp;igjen</p></div>
+      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-users"/></svg></span><p>Teamet nikker i m&oslash;tet &mdash; men tre uker etterpå har ingen fulgt opp</p></div>
+      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-bulb"/></svg></span><p>Du vet hva som er riktig vei videre, men klarer ikke &aring; f&aring; resten av rommet til &aring; se det samme</p></div>
+      <div class="card recog-card fi"><span class="icon-circle"><svg class="ico"><use href="#rg-chat"/></svg></span><p>Du forlater m&oslash;tet og tenker: &laquo;Jeg burde formulert meg annerledes&raquo;</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── COST OF INACTION ── -->
+<div class="block cost">
+  <div class="rg-narrow center fi">
+    <h2 class="h2 bar center">Hva koster det deg &aring; fortsette som n&aring;?</h2>
+    <p class="cost-p">Ikke i kroner. Men i karriere, innflytelse og resultater.</p>
+    <div class="cost-hl">
+      <p>Hvert m&oslash;te der du ikke f&aring;r gjennomslag er en mulighet som forsvinner.<br>
+      Hvert forslag som blir utsatt er fremdrift du ikke f&aring;r tilbake.</p>
+    </div>
+    <p class="cost-p">Over tid sender det et signal til organisasjonen &mdash;<br>ikke om kompetansen din, men om <strong>gjennomslagskraften</strong> din.</p>
+    <p class="cost-p">Det er ikke rettferdig. Men det er slik det fungerer.</p>
+    <p class="cost-p"><strong>Den gode nyheten:</strong> Det er ikke et talent du enten har eller ikke har.<br>Det er en ferdighet. Den kan trenes.</p>
+  </div>
+</div>
+
+<!-- ── FOR / NOT FOR ── -->
+<div class="block forwho">
+  <div class="rg-wrap">
+    <h2 class="h2 bar center fi">For hvem er dette webinaret?</h2>
+    <div class="for-grid">
+      <div class="for-card yes fi">
+        <h3><span class="mark"><svg class="ico"><use href="#rg-check"/></svg></span>Dette er for deg som:</h3>
+        <ul>
+          <li><span class="mark"><svg class="ico"><use href="#rg-check"/></svg></span>Er leder, fagdirekt&oslash;r, prosjektleder eller seniorspesialist.</li>
+          <li><span class="mark"><svg class="ico"><use href="#rg-check"/></svg></span>Regelmessig presenterer saker for ledergruppen, styret eller beslutningstagere.</li>
+          <li><span class="mark"><svg class="ico"><use href="#rg-check"/></svg></span>Er lei av &aring; ikke f&aring; gjennomslag &mdash; og vil gj&oslash;re noe med det.</li>
+          <li><span class="mark"><svg class="ico"><use href="#rg-check"/></svg></span>Er klar til &aring; investere i deg selv og karrieren din.</li>
+        </ul>
+      </div>
+      <div class="for-card no fi">
+        <h3><span class="mark"><svg class="ico"><use href="#rg-x"/></svg></span>Dette er ikke for deg som:</h3>
+        <ul>
+          <li><span class="mark"><svg class="ico"><use href="#rg-x"/></svg></span>Synes kommunikasjon funker greit nok</li>
+          <li><span class="mark"><svg class="ico"><use href="#rg-x"/></svg></span>Ser etter et raskt tips du kan glemme neste uke</li>
+          <li><span class="mark"><svg class="ico"><use href="#rg-x"/></svg></span>Ikke er villig til &aring; faktisk bruke det du l&aelig;rer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-center fi">
+      <a href="#" class="btn btn-lg cta-trigger">Sikre min plass på gratis webinar <svg class="ico"><use href="#rg-arrow"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- ── LOGO STRIP ── -->
+<div class="logos-block fi">
+  <div class="rg-wrap">
+    <p class="logos-lbl">Ledere fra disse organisasjonene har trent med Anne Karin:</p>
+    <ul class="logos">
+      <li>Equinor</li>
+      <li>SpareBank 1</li>
+      <li>TINE</li>
+      <li>Coop</li>
+      <li>Tieto</li>
+      <li>Aker BP</li>
+      <li>KS</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── WHAT YOU LEARN ── -->
+<div class="block learn">
+  <div class="rg-wrap">
+    <h2 class="h2 bar center fi">Dette l&aelig;rer du p&aring; webinaret</h2>
+    <div class="learn-grid">
+      <div class="card learn-card fi">
+        <span class="learn-num">01</span>
+        <h3>Hvorfor gode argumenter ikke alltid vinner</h3>
+        <p>Hva som skjer psykologisk n&aring;r beslutningstagere sier &laquo;vi tar det til neste kvartal&raquo; &mdash; og hva du konkret endrer for at de sier ja n&aring;.</p>
+      </div>
+      <div class="card learn-card fi">
+        <span class="learn-num">02</span>
+        <h3>De tre drivkreftene i et overbevisende budskap</h3>
+        <p>Logos, etos og patos &mdash; ikke som abstrakte begreper, men som konkrete grep du bruker i neste presentasjon. Du forlater webinaret med en sjekkliste.</p>
+      </div>
+      <div class="card learn-card fi">
+        <span class="learn-num">03</span>
+        <h3>Slik h&aring;ndterer du motstand uten &aring; miste autoritet</h3>
+        <p>Hva du sier n&aring;r noen utfordrer deg i m&oslash;terommet &mdash; og hvordan du snur en innvending til din fordel.</p>
+      </div>
+      <div class="card learn-card fi">
+        <span class="learn-num">04</span>
+        <h3>En arbeidsdag med gjennomslag &mdash; hvordan ser den ut?</h3>
+        <p>Konkrete eksempler fra norske organisasjoner. Gjenkjennbare situasjoner, reelle l&oslash;sninger.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TESTIMONIAL ── -->
+<div class="block testi">
+  <div class="rg-wrap">
+    <div class="testi-card fi">
+      <div class="testi-mark" aria-hidden="true">&ldquo;</div>
+      <div class="stars" aria-label="5 av 5 stjerner">
+        <svg class="ico"><use href="#rg-star"/></svg><svg class="ico"><use href="#rg-star"/></svg><svg class="ico"><use href="#rg-star"/></svg><svg class="ico"><use href="#rg-star"/></svg><svg class="ico"><use href="#rg-star"/></svg>
+      </div>
+      <p class="testi-quote">N&aring; forbereder jeg meg mye mindre, men bedre. Mer strukturert &mdash; og resultatet er at jeg er mer avslappet og snakker mitt eget spr&aring;k p&aring; scenen og i m&oslash;ter.</p>
+      <div class="testi-author">Morten Krogstad</div>
+      <div class="testi-role">Daglig leder, Oslo hundeskole</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MID CTA ── -->
+<div class="mid-cta fi">
+  <div class="rg-wrap">
+    <a href="#" class="btn btn-lg cta-trigger">Ja, jeg vil l&aelig;re dette &mdash; meld meg p&aring; <svg class="ico"><use href="#rg-arrow"/></svg></a>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<div class="about">
+  <div class="rg-wrap about-grid">
+    <div class="fi">
+      <p class="eyebrow">Om kursleder</p>
+      <h2 class="h2">Om Anne Karin Nordskag</h2>
+      <p>Jeg er sivi&oslash;konom og kommunikasjonstrener. Siden 2011 har jeg trent ledere og fagmilj&oslash;er i SpareBank 1, Norges Bank, TINE, Equinor, Aker BP, KS og Forsvaret.</p>
+      <p>NRK bruker meg som retorikkekspert n&aring;r politisk og offentlig retorikk analyseres.</p>
+      <p>Jeg vet hva det vil si &aring; sitte i m&oslash;terommet der mye st&aring;r p&aring; spill &mdash; og jeg vet n&oslash;yaktig hva som skiller de som vinner diskusjonen fra de som forlater rommet med enda ett &laquo;vi tar det til neste kvartal&raquo;.</p>
+    </div>
+    <figure class="about-photo fi">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production//sites/24458/images/ea3996b3-c5ac-44f8-a975-4cbed8d458e7.jpeg" alt="Anne Karin Nordskag" loading="lazy" onerror="this.style.display='none'">
+    </figure>
+  </div>
+</div>
+
+<!-- ── BOTTOM CTA ── -->
+<div class="final">
+  <div class="final-media" aria-hidden="true">
+    <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/24458/images/a17772-b3fc-e251-27-3e124e303337_Closing_CTA.png" alt="" width="2172" height="724" loading="lazy">
+  </div>
+  <div class="rg-wrap fi">
+    <p class="eyebrow light">Gratis webinar</p>
+    <h2>Sikre din plass <span class="accent">n&aring;</span></h2>
+    <p class="body">torsdag 5. november kl. 11:00.<br>60 minutter som kan endre m&aring;ten du kommuniserer p&aring; resten av karrieren.</p>
+    <a href="#" class="btn btn-lg cta-trigger">Sikre min plass p&aring; gratis webinar <svg class="ico"><use href="#rg-arrow"/></svg></a>
+    <p class="final-meta"><svg class="ico"><use href="#rg-lock"/></svg>Ingen forpliktelser &middot; Avmeld n&aring;r som helst</p>
+  </div>
+</div>
+
+<div class="rg-foot">
+  <p>&#169; 2025 Anne Karin Nordskag &nbsp;&middot;&nbsp; <a href="#">Personvern</a> &nbsp;&middot;&nbsp; <a href="#">Vilk&aring;r</a></p>
+  <p style="margin-top:6px">Sp&oslash;rsm&aring;l? <a href="mailto:post@krystallklart.no">post@krystallklart.no</a></p>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.rg');
+  if(root) root.classList.add('js');
+
+  // Run immediately and repeatedly to kill Kajabi chrome
+  function killKajabi(){
+    var tags = ['header','footer','nav'];
+    tags.forEach(function(tag){
+      document.querySelectorAll(tag).forEach(function(el){
+        el.style.cssText='display:none!important;height:0!important;max-height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;visibility:hidden!important;';
+      });
+    });
+    // Target exact elements from DevTools
+    var exactSelectors = [
+      '#section-header',
+      '[data-section-id="header"]',
+      '[data-section-id="footer"]'
+    ];
+    exactSelectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        el.style.cssText='display:none!important;height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;';
+      });
+    });
+    // Kill .sizer padding (causes top gap)
+    document.querySelectorAll('.sizer').forEach(function(el){
+      el.style.paddingTop='0px';
+      el.style.paddingBottom='0px';
+      el.style.marginTop='0px';
+      el.style.marginBottom='0px';
+    });
+    // Kill section.section padding
+    document.querySelectorAll('section.section').forEach(function(el){
+      el.style.padding='0px';
+      el.style.margin='0px';
+    });
+    // Hide by class keywords
+    var keywords = ['site-header','site-footer','kjb-header','kjb-footer',
+      'main-nav','navigation','top-bar','bottom-bar','breadcrumb',
+      'kjb-page-header','kjb-page-footer'];
+    keywords.forEach(function(kw){
+      document.querySelectorAll('[class*="'+kw+'"]').forEach(function(el){
+        el.style.cssText='display:none!important;height:0!important;max-height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;';
+      });
+    });
+    // Make body scrollable, block covers full width from top:0 left:0
+    var block = document.querySelector('.block-type--code');
+    if(block){
+      block.style.cssText='position:absolute!important;top:0!important;left:0!important;width:100%!important;z-index:999999!important;margin:0!important;padding:0!important;display:block!important;';
+    }
+    document.documentElement.style.cssText='position:relative!important;height:auto!important;overflow:auto!important;margin:0!important;padding:0!important;';
+    document.body.style.cssText='position:relative!important;height:auto!important;overflow:auto!important;margin:0!important;padding:0!important;overflow-x:hidden!important;';
+  }
+  killKajabi();
+  setTimeout(killKajabi, 100);
+  setTimeout(killKajabi, 500);
+  window.addEventListener('load', killKajabi);
+
+  /* ── COUNTDOWN ── */
+  /* 5 Nov 2026 11:00 Norwegian time (CET, UTC+1 — summer time has ended) */
+  var target = new Date('2026-11-05T11:00:00+01:00').getTime();
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    document.getElementById('cdD').textContent = String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cdH').textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('cdM').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    document.getElementById('cdS').textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ── MODAL ── */
+  var overlay = document.getElementById('modalOverlay');
+  function openModal(){
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    setTimeout(function(){ document.getElementById('mfFornavn').focus(); },300);
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('.cta-trigger').forEach(function(el){
+    el.addEventListener('click',function(e){ e.preventDefault(); openModal(); });
+  });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click',function(e){ if(e.target===overlay) closeModal(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+  window.akOpenModal=openModal; window.akCloseModal=closeModal;
+
+  /* ── STICKY BAR ── */
+  window.addEventListener('scroll',function(){
+    document.getElementById('stkBtn').classList.toggle('show', window.scrollY>600);
+  },{passive:true});
+
+  /* ── FADE IN ── */
+  var fis = document.querySelectorAll('.fi');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(e){
+      e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('on'); obs.unobserve(x.target); } });
+    },{threshold:0.08});
+    fis.forEach(function(el){ obs.observe(el); });
+  } else {
+    fis.forEach(function(el){ el.classList.add('on'); });
+  }
+
+  /* ── FORM SUBMIT → KAJABI ──
+     Native POST to the Kajabi form endpoint on this same domain.
+     No API key, no Zapier, no CORS layer to fail.
+     Fields match Kajabi form 2149542955 exactly:
+       form_submission[name] / [email] / [phone_number]
+     Thank-you page is set in Kajabi:
+       Marketing > Forms > 2149542955 > After submission > Go to a URL */
+  var PHONE_PREFIX = '+47';
+  var errEl = document.getElementById('mfError');
+
+  function showError(msg){
+    errEl.textContent = msg;
+    errEl.classList.add('show');
+  }
+
+  function validate(){
+    var ok = true;
+    ['mfFornavn','mfEmail','mfTelefon'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el.value.trim()){ el.classList.add('error'); ok = false; }
+      else el.classList.remove('error');
+    });
+    var em = document.getElementById('mfEmail').value.trim();
+    if(em && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){
+      document.getElementById('mfEmail').classList.add('error'); ok = false;
+    }
+    var ph = document.getElementById('mfTelefon').value.trim();
+    if(ph && ph.replace(/[^\d]/g,'').length < 8){
+      document.getElementById('mfTelefon').classList.add('error'); ok = false;
+    }
+    return ok;
+  }
+
+  document.getElementById('mfForm').addEventListener('submit', function(e){
+    errEl.classList.remove('show');
+
+    if(!validate()){
+      e.preventDefault();
+      showError('Alle felt må fylles inn for å gå videre.');
+      return;
+    }
+
+    // Phone with the +47 prefix shown beside the input
+    var digits = document.getElementById('mfTelefon').value.replace(/[^\d]/g,'');
+    document.getElementById('mfPhoneFull').value = digits ? (PHONE_PREFIX + digits) : '';
+
+    // CSRF token from the Kajabi page <head>
+    var tokenMeta = document.querySelector('meta[name="csrf-token"]');
+    if(tokenMeta && tokenMeta.content){
+      document.getElementById('mfCsrf').value = tokenMeta.content;
+    }
+
+    var btn = document.getElementById('mfSubmit');
+    btn.textContent = 'Sender...';
+    // NOT disabled — a disabled button cancels the native submit
+    // no preventDefault: the browser performs the POST
+  });
+})();
+</script>
+</body>
+</html>
