@@ -89,39 +89,37 @@
 .ks [id^="ks-"]{scroll-margin-top:84px}
 @media (prefers-reduced-motion:reduce){.ks.js .reveal{opacity:1;transform:none;transition:none}.ks .btn{transition:none}}
 
-/* ---------- header ---------- */
-.ks .header{position:absolute;inset:0 0 auto 0;z-index:50}
-.ks .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:120px;padding-top:12px;transition:height .3s ease,padding .3s ease}
-.ks .logo img{height:62px;width:auto;transition:height .3s ease}
-.ks .header.stuck{position:fixed;background:rgba(1,26,55,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.45);animation:ks-drop .35s ease}
-.ks .header.stuck .wrap{height:76px;padding-top:0}
-.ks .header.stuck .logo img{height:46px}
-/* Sign-up button only appears in the compact bar after scrolling */
-.ks .sticky-cta{display:none;padding:11px 26px;font-size:16px;min-width:0}
-.ks .sticky-cta .ico{width:18px;height:18px}
-.ks .header.stuck .sticky-cta{display:inline-flex}
-@keyframes ks-drop{from{transform:translateY(-100%)}to{transform:none}}
+/* ---------- slim bar (only slides in after scrolling past the hero) ---------- */
+.ks .ks-bar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(1,26,55,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.45);transform:translateY(-110%);transition:transform .35s ease}
+.ks .ks-bar.show{transform:none}
+.ks .ks-bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:74px}
+.ks .ks-bar .logo img{height:44px;width:auto}
+.ks .ks-bar .btn{padding:11px 26px;font-size:16px;min-width:0}
+.ks .ks-bar .btn .ico{width:18px;height:18px}
 
 /* ---------- hero ---------- */
-.ks .hero{position:relative;background:var(--navy);color:#fff;min-height:clamp(760px,100svh,1000px);overflow:hidden;display:flex;flex-direction:column}
+.ks .hero{position:relative;background:var(--navy);color:#fff;min-height:clamp(720px,66.6vw,980px);overflow:hidden;display:flex;align-items:center}
 /* full-width photo with a navy tint, darkest on the left where the text sits */
-.ks .hero-media{position:absolute;top:0;right:0;bottom:0;left:30%}
-.ks .hero-media img{width:100%;height:100%;object-fit:cover;object-position:72% 22%}
+.ks .hero-media{position:absolute;inset:0}
+.ks .hero-media img{width:100%;height:100%;object-fit:cover;object-position:75% 25%}
 .ks .hero-media::after{content:"";position:absolute;inset:0;
   background:
-    linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.8) 18%,rgba(1,26,55,.35) 40%,rgba(1,26,55,.15) 65%,rgba(1,26,55,.25) 100%),
-    linear-gradient(0deg,rgba(1,26,55,.75) 0%,rgba(1,26,55,0) 32%),
-    linear-gradient(180deg,rgba(1,26,55,.6) 0%,rgba(1,26,55,0) 20%)}
-.ks .hero-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:space-between;padding-top:clamp(170px,19vw,230px)}
-.ks .hero-copy{max-width:760px}
+    linear-gradient(90deg,rgba(1,26,55,.95) 0%,rgba(1,26,55,.85) 26%,rgba(1,26,55,.45) 46%,rgba(1,26,55,.08) 64%,rgba(1,26,55,0) 80%),
+    linear-gradient(0deg,rgba(1,26,55,.65) 0%,rgba(1,26,55,0) 26%),
+    linear-gradient(180deg,rgba(1,26,55,.35) 0%,rgba(1,26,55,0) 16%)}
+.ks .hero-body{position:relative;z-index:2;width:100%;padding-top:150px;padding-bottom:170px}
+.ks .hero-copy{max-width:680px}
 .ks .hero .eyebrow{font-size:clamp(14px,1.45vw,16.5px);letter-spacing:.42em;font-weight:500}
 .ks .hero .eyebrow::after{width:70px;margin:22px 0 34px}
-.ks .hero h1{color:#fff;font-size:clamp(36px,5.5vw,62px);font-weight:800;line-height:1.1;letter-spacing:-.03em;text-shadow:0 2px 30px rgba(1,26,55,.4)}
+.ks .hero h1{color:#fff;font-size:clamp(36px,4.6vw,58px);font-weight:800;line-height:1.1;letter-spacing:-.03em;text-shadow:0 2px 30px rgba(1,26,55,.4)}
 .ks .hero-lead{margin:30px 0 48px;max-width:540px;font-size:clamp(18px,2vw,24px);line-height:1.45;color:#eaf2fb}
-.ks .stats{display:grid;grid-template-columns:repeat(4,1fr);padding:36px 0 64px;margin-top:56px}
-.ks .stats li{display:flex;flex-direction:column;gap:22px;padding:0 24px 0 44px;border-left:1px solid rgba(255,255,255,.28);font-size:clamp(17px,1.9vw,22px);line-height:1.38;color:#fff}
-.ks .stats li:first-child{border-left:0;padding-left:12px}
-.ks .stats .ico{width:50px;height:50px;color:var(--cyan);stroke-width:1.9}
+/* ---------- key facts strip, overlapping the bottom of the hero ---------- */
+.ks .stats-wrap{position:relative;z-index:3;margin-top:-84px}
+.ks .stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid #dcebf7;border-radius:16px;padding:26px 10px;box-shadow:0 30px 60px -28px rgba(1,26,55,.45)}
+.ks .stats li{display:flex;align-items:center;gap:16px;padding:6px 22px;border-left:1px solid #e1ebf4;font-size:16px;font-weight:600;line-height:1.35;color:var(--ink)}
+.ks .stats li:first-child{border-left:0}
+.ks .stats .icon-circle{width:54px;height:54px}
+.ks .stats .icon-circle .ico{width:26px;height:26px}
 
 /* ---------- skills (Dette utvikler du) ---------- */
 .ks .skills .h2{margin-bottom:22px}
@@ -311,25 +309,24 @@
   .ks .facts li:nth-child(3){border-left:0}
 }
 @media (max-width:900px){
-  .ks .header .wrap{height:96px}
-  .ks .logo img{height:50px}
-  .ks .header.stuck .wrap{height:68px}
-  .ks .header.stuck .logo img{height:40px}
-  .ks .sticky-cta{padding:9px 18px;font-size:15px}
-  .ks .sticky-cta .ico{display:none}
+  .ks .ks-bar .wrap{height:64px}
+  .ks .ks-bar .logo img{height:36px}
+  .ks .ks-bar .btn{padding:9px 18px;font-size:15px}
+  .ks .ks-bar .btn .ico{display:none}
 
-  .ks .hero{min-height:0}
-  .ks .stats{margin-top:40px}
-  .ks .hero-media{width:100%;height:auto;bottom:auto;aspect-ratio:4/5;max-height:760px}
-  .ks .hero-media{inset:0 0 auto 0;left:0}
-  .ks .hero-media img{object-position:72% 20%}
-  .ks .hero-media::after{background:linear-gradient(180deg,rgba(1,26,55,.55) 0%,rgba(1,26,55,.2) 25%,rgba(1,26,55,.55) 55%,var(--navy) 98%)}
-  .ks .hero-body{padding-top:min(78vw,520px)}
+  .ks .hero{min-height:0;display:block}
+  .ks .hero-media{inset:0 0 auto 0;height:auto;aspect-ratio:4/5;max-height:720px}
+  .ks .hero-media img{object-position:74% 20%}
+  .ks .hero-media::after{background:linear-gradient(180deg,rgba(1,26,55,.15) 0%,rgba(1,26,55,0) 30%,rgba(1,26,55,.55) 62%,var(--navy) 98%)}
+  .ks .hero-body{padding-top:min(88vw,600px);padding-bottom:130px}
   .ks .hero-lead{margin:24px 0 36px}
-  .ks .stats{grid-template-columns:1fr 1fr;gap:28px 0;margin-top:48px;padding-bottom:56px}
-  .ks .stats li{padding:0 14px 0 22px}
-  .ks .stats li:nth-child(3){border-left:0;padding-left:12px}
-  .ks .stats .ico{width:40px;height:40px}
+  .ks .stats-wrap{margin-top:-72px}
+  .ks .stats{grid-template-columns:1fr 1fr;padding:8px}
+  .ks .stats li{flex-direction:column;align-items:flex-start;gap:12px;padding:16px;border-left:0;font-size:15px}
+  .ks .stats li:nth-child(2n){border-left:1px solid #e1ebf4}
+  .ks .stats li:nth-child(n+3){border-top:1px solid #e1ebf4}
+  .ks .stats .icon-circle{width:46px;height:46px}
+  .ks .stats .icon-circle .ico{width:22px;height:22px}
 
   .ks .training-grid,.ks .employer-grid,.ks .leader-grid,.ks .faq-grid{grid-template-columns:1fr}
   .ks .training-photo{justify-self:center;margin-top:22px}
@@ -364,7 +361,6 @@
   .ks .coach-title{padding:0}
   .ks .facts li{border-left:0;padding:8px 14px}
   .ks .btn-xl,.ks .btn-lg{width:100%;padding-left:24px;padding-right:24px}
-  .ks .stats li{font-size:16px}
 }
 </style>
 </head>
@@ -401,15 +397,15 @@
   </defs>
 </svg>
 
-<!-- ================= HEADER ================= -->
-<header class="header" data-ks-header>
+<!-- ================= SLIM BAR (appears after scrolling) ================= -->
+<div class="ks-bar" data-ks-bar>
   <div class="wrap">
     <a class="logo" href="#ks-top" aria-label="Krystallklart budskap – til toppen">
-      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159461574/settings_images/d2a3c85-350c-fbf7-ae3a-64c6d07d1df_logo-horizontal-compact-kopi.png" alt="Krystallklart budskap" width="260" height="62">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159461574/settings_images/d2a3c85-350c-fbf7-ae3a-64c6d07d1df_logo-horizontal-compact-kopi.png" alt="Krystallklart budskap" width="185" height="44">
     </a>
-    <a class="btn sticky-cta" href="https://webinar.krystallklart.no/offers/d2Zh26RK/checkout?preview=true">Meld deg på <svg class="ico"><use href="#ks-arrow"/></svg></a>
+    <a class="btn" href="https://webinar.krystallklart.no/offers/d2Zh26RK/checkout?preview=true">Meld deg på <svg class="ico"><use href="#ks-arrow"/></svg></a>
   </div>
-</header>
+</div>
 
 <main>
 
@@ -425,14 +421,18 @@
       <p class="hero-lead">Et intensivt utviklingsprogram for ledere, erfarne fagspesialister og gründere som er avhengige av å få andre med seg.</p>
       <a class="btn btn-xl" href="https://webinar.krystallklart.no/offers/d2Zh26RK/checkout?preview=true">Meld deg på <svg class="ico"><use href="#ks-arrow"/></svg></a>
     </div>
-    <ul class="stats" aria-label="Programmet i korte trekk">
-      <li><svg class="ico"><use href="#ks-calendar"/></svg><span>8 ukers<br>utviklingsprogram</span></li>
-      <li><svg class="ico"><use href="#ks-chart"/></svg><span>Everything DiSC med individuell tilbakelesing</span></li>
-      <li><svg class="ico"><use href="#ks-users"/></svg><span>4 individuelle coachingsamtaler</span></li>
-      <li><svg class="ico"><use href="#ks-doc"/></svg><span>Trening på<br>egne cases</span></li>
-    </ul>
   </div>
 </section>
+
+<!-- ================= KEY FACTS ================= -->
+<div class="wrap stats-wrap">
+  <ul class="stats" aria-label="Programmet i korte trekk">
+    <li><span class="icon-circle"><svg class="ico"><use href="#ks-calendar"/></svg></span><span>8 ukers utviklingsprogram</span></li>
+    <li><span class="icon-circle"><svg class="ico"><use href="#ks-chart"/></svg></span><span>Everything DiSC med individuell tilbakelesing</span></li>
+    <li><span class="icon-circle"><svg class="ico"><use href="#ks-users"/></svg></span><span>4 individuelle coachingsamtaler</span></li>
+    <li><span class="icon-circle"><svg class="ico"><use href="#ks-doc"/></svg></span><span>Trening på egne cases</span></li>
+  </ul>
+</div>
 
 <!-- ================= DETTE UTVIKLER DU ================= -->
 <section class="section skills" id="ks-programmet">
@@ -715,10 +715,10 @@
   var root=document.querySelector('.ks'); if(!root) return;
   root.classList.add('js');
 
-  // Sticky header after the hero starts scrolling away
-  var header=root.querySelector('[data-ks-header]');
-  if(header){
-    var onScroll=function(){ header.classList.toggle('stuck', window.scrollY > 160); };
+  // Slim bar slides in once the hero has scrolled away
+  var bar=root.querySelector('[data-ks-bar]');
+  if(bar){
+    var onScroll=function(){ bar.classList.toggle('show', window.scrollY > 600); };
     window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   }
 
