@@ -276,7 +276,7 @@
 /* Full-width background photo; its left side is already navy, so the text sits there */
 .ks .final-media{position:absolute;inset:0}
 .ks .final-media img{width:100%;height:100%;object-fit:cover;object-position:right center}
-.ks .final-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.85) 30%,rgba(1,26,55,.2) 55%,rgba(1,26,55,0) 70%)}
+.ks .final-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.96) 32%,rgba(1,26,55,.7) 46%,rgba(1,26,55,.15) 60%,rgba(1,26,55,0) 68%)}
 .ks .final .wrap{position:relative;z-index:1;padding-top:72px;padding-bottom:76px}
 .ks .final .eyebrow{font-weight:500;letter-spacing:.4em}
 .ks .final .eyebrow::after{display:none}
@@ -286,8 +286,12 @@
 
 /* ---------- responsive ---------- */
 @media (max-width:1180px) and (min-width:901px){
-  .ks .final-media::after{background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.88) 40%,rgba(1,26,55,.3) 62%,rgba(1,26,55,0) 78%)}
-  .ks .final p.body{max-width:500px}
+  /* photo only on the right so the headline never covers his face */
+  .ks .final-media{left:44%}
+  .ks .final-media img{object-position:70% center}
+  .ks .final-media::after{background:linear-gradient(90deg,var(--navy) 0%,rgba(1,26,55,.6) 18%,rgba(1,26,55,0) 40%)}
+  .ks .final h2{font-size:clamp(36px,4.2vw,48px)}
+  .ks .final p.body{max-width:400px}
 }
 @media (max-width:1080px){
   .ks .grid-4,.ks .mod-grid{grid-template-columns:repeat(2,1fr)}
@@ -339,7 +343,7 @@
   .ks .price-grid .divider{display:none}
   .ks .faq-grid{gap:26px}
   .ks .final-media{position:relative;inset:auto;aspect-ratio:16/10}
-  .ks .final-media img{object-position:78% center}
+  .ks .final-media img{object-position:72% center}
   .ks .final-media::after{background:linear-gradient(180deg,rgba(1,26,55,0) 55%,var(--navy) 100%)}
   .ks .final .wrap{padding-top:8px;padding-bottom:56px}
 }
@@ -688,7 +692,7 @@
 <!-- ================= FINAL CTA ================= -->
 <section class="final" id="ks-meld-deg-pa">
   <div class="final-media" aria-hidden="true">
-    <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/24458/images/a17772-b3fc-e251-27-3e124e303337_Closing_CTA.png" alt="" width="2172" height="724" loading="lazy">
+    <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/24458/images/1d48cf-c7a6-28b-dc30-4d40dd1f50f_DE3A394F-2353-4D59-AC7D-1BF500B20B3F.png" alt="" width="2268" height="762" loading="lazy">
   </div>
   <div class="wrap reveal">
     <p class="eyebrow light">Klar for å ta neste steg?</p>
