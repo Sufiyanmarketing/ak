@@ -15,3 +15,6 @@ Statisk landingsside for Krystallklart budskap. Åpne `index.html` i nettleseren
 
 ## Kajabi
 `kajabi/kajabi-landing.html` er en selvstendig versjon (HTML + CSS + JS + bilder i én fil) som limes inn i en «Custom Code»-blokk i Kajabi. All CSS er avgrenset til `.kob`, så den ikke kolliderer med Kajabi-temaet. Bytt bilder ved å endre `--img-hero` / `--img-coach` øverst i `<style>`.
+
+## Drip
+`assets/js/drip.js` laster Drip-sporingen og sender hendelsen «Klikket Meld deg på» når noen klikker en påmeldingsknapp. Sett `DRIP_ACCOUNT_ID` øverst i filen til konto-ID-en (tallet i Drip-URL-en) – til da lastes ikke Drip. Kjør `python3 kajabi/build_kajabi.py <bildemappe>` på nytt for å få endringen med i Kajabi-versjonen (eller endre ID-en direkte nederst i `kajabi/kajabi-landing.html`). Legg aldri API-tokenet i denne filen – den er offentlig.

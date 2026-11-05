@@ -135,6 +135,8 @@ js = """
 })();
 """
 
+drip_js = open('assets/js/drip.js').read()
+
 out = f"""<!-- ==========================================================
   Kunsten å overbevise – Krystallklart budskap
   Lim inn hele denne koden i en «Custom Code»-blokk i Kajabi.
@@ -158,6 +160,8 @@ out = f"""<!-- ==========================================================
 {chr(10).join(ld)}
 
 <script>{js}</script>
+
+<script>{drip_js}</script>
 """
 open('kajabi/kajabi-landing.html', 'w').write(out)
 print(len(out))
