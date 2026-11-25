@@ -13,7 +13,7 @@ import os
 
 # ---------------------------------------------------------------- innstillinger
 CAMPAIGN_URL = "https://www.naprapatmaiken.no/black-week"
-SESSION = "torsdag 10. desember kl. 19"        # [DATO] bekreftes av Maiken
+SESSION = "onsdag 9. desember kl. 19"          # bekreftet
 DEADLINE = "23:59"
 OPTOUT_URL = "{{OPTOUT_URL}}"                  # lenke som setter tag black-week-2026-optout
 WEEK1_URL = "{{UKE1_OKT1_URL}}"                # lenke til Uke 1, okt 1 i portalen

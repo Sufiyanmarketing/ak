@@ -42,7 +42,7 @@ E-0 står til kl. 10:00 i planen, men Maikens frist for å svare er kl. 12:00 sa
 
 Søk etter disse i `build_emails.py`, bygg på nytt:
 
-- `SESSION`: dato for oppstartssendingen (nå «torsdag 10. desember kl. 19», ikke bekreftet).
+- `SESSION`: dato for oppstartssendingen, nå «onsdag 9. desember kl. 19» (bekreftet).
 - `{{OPTOUT_URL}}`: lenke som setter tag `black-week-2026-optout`.
 - `{{UKE1_OKT1_URL}}`: Uke 1, økt 1 i portalen (E-7a).
 - `{{KALENDER_URL}}`: kalenderfil for oppstartssendingen (E-7a).
