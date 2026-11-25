@@ -21,7 +21,6 @@
 
      PLASSHOLDERE SOM MAA SJEKKES FOR PUBLISERING:
        [DATO]  Oppstartssending: torsdag 10. desember kl. 19 (3 steder)
-       [BILDE] src paa bildet av Maiken (se kommentar ved <img>)
        [URL]   BW_CONFIG.redirectUrl = ordinaer salgsside
 ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -241,6 +240,25 @@ html,body{margin:0!important;padding:0!important;overflow-x:hidden!important;}
   .bw-price-body,.bw-get-body{padding-left:20px;padding-right:20px;}
 }
 @media(prefers-reduced-motion:reduce){.maiken-bw *{animation:none!important;transition:none!important;}}
+
+/* ===== DESKTOP: boxed layout (ikke full bredde) ===== */
+@media(min-width:1024px){
+  .block-type--code{background:#0F0C13!important;}
+  .maiken-bw{max-width:1180px;margin:0 auto 40px!important;border-radius:0 0 28px 28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);}
+  .bw-bar{left:50%;right:auto;width:100%;max-width:1180px;transform:translateX(-50%);}
+}
+
+/* ===== Kajabi-tema overstyrer overskrifter: tving riktige farger ===== */
+.maiken-bw h1,.maiken-bw h2,.maiken-bw h3,.maiken-bw h4{letter-spacing:normal;text-transform:none;}
+.bw-hero h1,.bw-price-top h2,.bw-kick-top h3,.bw-final h2,.bw-kick-step b{color:#fff!important;}
+.bw-cmp-col--bw .p,.bw-cmp-col--bw li{color:#fff!important;}
+.bw-cmp-col--bw h4,.bw-kick-step .n{color:var(--pink)!important;}
+.bw-cmp-col h4{text-transform:uppercase!important;letter-spacing:1.4px!important;}
+.bw-kick-top p,.bw-kick-step p,.bw-kick-note{color:rgba(255,255,255,.75)!important;}
+.bw-hero .sub,.bw-final p{color:rgba(255,255,255,.8)!important;}
+.bw-hero h1 em,.bw-final h2 em{color:var(--pink-soft)!important;}
+.bw-get-body h3,.bw-sec-head h2{color:var(--ink)!important;}
+.bw-sec-head h2 em{color:var(--pink-dark)!important;}
 </style>
 
 <div class="maiken-bw">
@@ -314,10 +332,7 @@ html,body{margin:0!important;padding:0!important;overflow-x:hidden!important;}
         <!-- RIGHT: what you get -->
         <div class="bw-get">
           <div class="bw-get-photo">
-            <!-- [BILDE] Lim inn den opprinnelige src="data:image/jpeg;base64,..." her,
-                 eller (anbefalt) last opp bildet i Kajabi og bruk bilde-URL-en.
-                 Et innebygd base64-bilde gjor siden tung paa mobil. -->
-            <img src="BYTT-MED-BILDE-URL" alt="Maiken Lund trener ved en innsjø">
+            <img src="https://kajabi-storefronts-production.s3.amazonaws.com/file-uploads/sites/171479/images/6ae4f24-c220-4b1f-6f2-7234c172365_download_7_.jpeg" alt="Maiken Lund trener ved en innsjø">
             <div class="stamp"><b>6</b><span>mnd<br>tilgang</span></div>
           </div>
           <div class="bw-get-body">
