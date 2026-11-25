@@ -183,7 +183,7 @@ def kajabi_safe(doc):
 
 
 def page(subject, preview, tag, body, with_photo=False, campaign=True):
-    pre = html.escape(preview) + "&#847;&zwnj;&nbsp;" * 60
+    pre = html.escape(preview) + "&#847;&zwnj;&nbsp;" * 15
     return kajabi_safe(f"""<!doctype html>
 <html lang="nb" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
