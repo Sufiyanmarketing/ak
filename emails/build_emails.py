@@ -297,24 +297,64 @@ EMAILS = [
 def main():
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
     os.makedirs(out, exist_ok=True)
-    rows = ""
-    for e in EMAILS:
+    cards = ""
+    for i, e in enumerate(EMAILS):
         doc = page(e["subject"], e["preview"], e["tag"], e["body"],
                    with_photo=e.get("with_photo", False), campaign=e.get("campaign", True))
         with open(os.path.join(out, e["file"] + ".html"), "w", encoding="utf-8") as f:
             f.write(doc)
-        rows += (f'<tr><td><b>{e["code"]}</b></td><td>{html.escape(e["when"])}</td><td>{html.escape(e["to"])}</td>'
-                 f'<td><a href="{e["file"]}.html">{html.escape(e["subject"])}</a><br>'
-                 f'<span style="color:#7A7280">{html.escape(e["preview"])}</span></td></tr>')
+        esc = html.escape(doc)
+        cards += f"""
+<section class="card" id="{e['file']}">
+  <div class="head"><span class="code">{e['code']}</span>
+    <div><div class="when">{html.escape(e['when'])}</div><div class="to">Til: {html.escape(e['to'])}</div></div></div>
+  <div class="field"><label>Emne</label>
+    <div class="row"><input readonly id="s{i}" value="{html.escape(e['subject'])}"><button data-copy="s{i}">Kopier emne</button></div></div>
+  <div class="field"><label>Forhåndsvisningstekst</label>
+    <div class="row"><input readonly id="p{i}" value="{html.escape(e['preview'])}"><button data-copy="p{i}">Kopier</button></div></div>
+  <div class="field"><label>HTML</label>
+    <div class="row"><textarea readonly id="h{i}">{esc}</textarea><button class="big" data-copy="h{i}">Kopier HTML</button></div></div>
+  <details><summary>Vis e-posten</summary><iframe title="{html.escape(e['subject'])}" srcdoc="{esc}" loading="lazy"></iframe></details>
+</section>"""
+    nav = "".join(f'<a href="#{e["file"]}">{e["code"]}</a>' for e in EMAILS)
     index = f"""<!doctype html><html lang="nb"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Black Week e-poster</title>
-<style>body{{font-family:Arial,sans-serif;background:#FAF6F4;color:#1F1A24;margin:0;padding:24px 16px;}}
-table{{border-collapse:collapse;width:100%;max-width:980px;background:#fff;}}
-td,th{{border:1px solid #EBE3E3;padding:10px;text-align:left;vertical-align:top;font-size:14px;}}
-th{{background:#0F0C13;color:#fff;}} a{{color:#E04EAB;font-weight:700;}}</style></head><body>
-<h1>Sterk Rygg · Black Week 2026 · e-poster</h1>
-<p>Alle tider er Oslo-tid. Klikk på emnet for å se e-posten.</p>
-<div style="overflow-x:auto"><table><tr><th>Kode</th><th>Når</th><th>Til</th><th>Emne / forhåndsvisning</th></tr>{rows}</table></div>
+<style>
+:root{{--ink:#1F1A24;--muted:#7A7280;--pink:#E04EAB;--line:#EBE3E3;--cream:#FAF6F4;--dark:#0F0C13;}}
+*{{box-sizing:border-box}}
+body{{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);margin:0;padding:0 16px 40px;}}
+header{{max-width:880px;margin:0 auto;padding:28px 0 8px;}}
+h1{{font-size:24px;margin:0 0 6px}} header p{{color:var(--muted);margin:0 0 14px}}
+nav{{position:sticky;top:0;z-index:5;background:var(--dark);padding:10px;border-radius:12px;display:flex;flex-wrap:wrap;gap:6px;max-width:880px;margin:0 auto 18px;}}
+nav a{{color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:6px 10px;border-radius:8px;background:#2A2433}}
+.card{{max-width:880px;margin:0 auto 18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;scroll-margin-top:70px}}
+.head{{display:flex;gap:12px;align-items:center;margin-bottom:12px}}
+.code{{background:var(--pink);color:#fff;font-weight:800;border-radius:10px;padding:8px 12px;font-size:15px}}
+.when{{font-weight:700}} .to{{color:var(--muted);font-size:14px}}
+.field{{margin-top:10px}} label{{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px}}
+.row{{display:flex;gap:8px;align-items:stretch}}
+input,textarea{{flex:1;min-width:0;font:15px/1.4 Arial,sans-serif;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--cream);color:var(--ink)}}
+textarea{{height:80px;font:12px/1.4 monospace;resize:vertical}}
+button{{flex-shrink:0;background:var(--dark);color:#fff;border:0;border-radius:10px;padding:0 14px;font-weight:700;font-size:14px;cursor:pointer;min-height:44px}}
+button.big{{background:var(--pink)}} button.ok{{background:#2E7D4F}}
+details{{margin-top:12px}} summary{{cursor:pointer;font-weight:700;color:var(--pink)}}
+iframe{{width:100%;height:900px;border:1px solid var(--line);border-radius:12px;margin-top:10px;background:var(--cream)}}
+@media(max-width:560px){{.row{{flex-direction:column}} button{{min-height:44px}}}}
+</style></head><body>
+<header><h1>Sterk Rygg · Black Week 2026</h1>
+<p>Trykk «Kopier emne» og «Kopier HTML», og lim inn i e-postverktøyet. Alle tider er Oslo-tid.</p></header>
+<nav>{nav}</nav>
+{cards}
+<script>
+document.querySelectorAll('button[data-copy]').forEach(function(b){{
+  b.addEventListener('click',function(){{
+    var el=document.getElementById(b.dataset.copy), t=b.textContent;
+    function done(){{b.textContent='Kopiert ✓';b.classList.add('ok');setTimeout(function(){{b.textContent=t;b.classList.remove('ok');}},1800);}}
+    if(navigator.clipboard&&window.isSecureContext){{navigator.clipboard.writeText(el.value).then(done,fallback);}}else{{fallback();}}
+    function fallback(){{el.select();try{{document.execCommand('copy');done();}}catch(e){{}}}}
+  }});
+}});
+</script>
 </body></html>"""
     with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
         f.write(index)
