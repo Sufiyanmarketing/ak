@@ -161,9 +161,30 @@ def footer(campaign=True):
             f'&copy; 2026 Maiken Lund &middot; Naprapat</td></tr>')
 
 
+def kajabi_safe(doc):
+    """Kajabi fjerner stil paa <div>. Gjor om alle div-er (unntatt preheader)
+    til <span> (inline-block) eller <p style="margin:0">."""
+    import re
+    out, stack, i = [], [], 0
+    for m in re.finditer(r'<div((?: class="[^"]*")?) style="([^"]*)">|</div>', doc):
+        out.append(doc[i:m.start()])
+        cls, style = m.group(1), m.group(2)
+        if m.group(0) == "</div>":
+            out.append(f"</{stack.pop()}>")
+        elif cls == ' class="preheader"':
+            out.append(m.group(0)); stack.append("div")
+        elif "display:inline-block" in style:
+            out.append(f'<span{cls} style="{style}">'); stack.append("span")
+        else:
+            out.append(f'<p{cls} style="margin:0;{style}">'); stack.append("p")
+        i = m.end()
+    out.append(doc[i:])
+    return "".join(out)
+
+
 def page(subject, preview, tag, body, with_photo=False, campaign=True):
     pre = html.escape(preview) + "&#847;&zwnj;&nbsp;" * 60
-    return f"""<!doctype html>
+    return kajabi_safe(f"""<!doctype html>
 <html lang="nb" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
 <meta charset="utf-8">
@@ -179,10 +200,10 @@ def page(subject, preview, tag, body, with_photo=False, campaign=True):
 </style>
 </head>
 <body style="margin:0;padding:0;background:{CREAM};">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">{pre}</div>
+<div class="preheader" style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">{pre}</div>
 <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:{CREAM};">
 <tr><td align="center" style="padding:24px 12px;">
-<table role="presentation" class="wrap" cellpadding="0" cellspacing="0" width="600" style="width:600px;max-width:600px;background:#ffffff;border-radius:20px;">
+<table role="presentation" class="wrap" cellpadding="0" cellspacing="0" width="100%" style="width:100%;max-width:600px;background:#ffffff;border-radius:20px;">
 {header(tag)}
 {photo() if with_photo else ""}
 <tr><td class="pad" style="padding:32px 36px;">
@@ -192,7 +213,7 @@ def page(subject, preview, tag, body, with_photo=False, campaign=True):
 </table>
 </td></tr></table>
 </body></html>
-"""
+""")
 
 
 HI = p("Hei {{first_name}}.", color=INK)
@@ -303,6 +324,10 @@ def main():
                    with_photo=e.get("with_photo", False), campaign=e.get("campaign", True))
         with open(os.path.join(out, e["file"] + ".html"), "w", encoding="utf-8") as f:
             f.write(doc)
+        os.makedirs(os.path.join(out, "txt"), exist_ok=True)
+        with open(os.path.join(out, "txt", f"{e['code']}-{e['file']}.txt"), "w", encoding="utf-8") as f:
+            f.write(f"EMNE: {e['subject']}\nFORHÅNDSVISNING: {e['preview']}\nNÅR: {e['when']}\n"
+                    f"TIL: {e['to']}\n\n===== HTML (kopier alt under denne linjen) =====\n\n{doc}")
         esc = html.escape(doc)
         cards += f"""
 <section class="card" id="{e['file']}">
